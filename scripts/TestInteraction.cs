@@ -6,6 +6,7 @@ public partial class TestInteraction : Area2D
 {
 	public void Use()
 	{
+		GameManager.instance.PlayMicrogame(1);
 		GD.Print("ooooo");
 	}
 }

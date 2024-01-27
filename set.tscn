@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://betrmri816dig"]
+[gd_scene load_steps=7 format=3 uid="uid://betrmri816dig"]
 
 [ext_resource type="Texture2D" uid="uid://7tpdmwt7supg" path="res://sprites/static/testrender.png" id="1_5imvx"]
+[ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_jteog"]
 [ext_resource type="PackedScene" uid="uid://7rwt0cc7i3wp" path="res://Player.tscn" id="2_h4xbb"]
 [ext_resource type="PackedScene" uid="uid://b8pc6ejab5htj" path="res://TestInteraction.tscn" id="3_o4yde"]
 
@@ -10,7 +11,9 @@ size = Vector2(1034, 278)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qet1"]
 size = Vector2(519, 978)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("Microgames")]
+script = ExtResource("1_jteog")
+Microgames = [NodePath("MicroGameParent/MicroGame1")]
 
 [node name="Testrender" type="Sprite2D" parent="."]
 texture = ExtResource("1_5imvx")
@@ -48,3 +51,7 @@ shape = SubResource("RectangleShape2D_0qet1")
 
 [node name="Area2D" parent="." instance=ExtResource("3_o4yde")]
 position = Vector2(882, 598)
+
+[node name="MicroGameParent" type="Node2D" parent="."]
+
+[node name="MicroGame1" type="Node2D" parent="MicroGameParent"]
