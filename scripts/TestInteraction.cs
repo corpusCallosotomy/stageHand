@@ -4,9 +4,12 @@ using System.Security.AccessControl;
 
 public partial class TestInteraction : Area2D
 {
+[Export] public Node MicroGameParent;
 	public void Use()
 	{
-		GameManager.instance.PlayMicrogame(1);
+		
+		Node nodeInstance = ResourceLoader.Load<PackedScene>("res://scenes/microgame/MicrophoneGame.tscn").Instantiate();
+		AddChild(Microgame);
 		GD.Print("ooooo");
 	}
 }

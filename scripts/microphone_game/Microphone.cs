@@ -20,8 +20,10 @@ public partial class Microphone : Node2D
 		initializeGame();
 	}
 
+	
 	public void initializeGame()
 	{
+		
 		this.initialRotation = 0;
 		this.RotationDegrees = 0;
 	}
