@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://7q1jf3g6u1es"]
+
+[ext_resource type="Texture2D" uid="uid://cj0si5gjbq2sv" path="res://scenes/microgame/tomato-dodging/temp_theater-stage-red-curtain.jpg" id="1_s5bbo"]
+[ext_resource type="PackedScene" uid="uid://bewlo536p23cy" path="res://scenes/microgame/tomato-dodging/temp_player.tscn" id="2_va5hl"]
+[ext_resource type="PackedScene" uid="uid://d240ni6f6ag6q" path="res://sprites/microgame/tomato-dodging/tomato.tscn" id="3_mxnk8"]
+[ext_resource type="Script" path="res://scripts/TomatoGenerator.cs" id="3_w5t38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4rgk"]
+size = Vector2(1301, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxcyh"]
+size = Vector2(170, 560)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(188, 214)
+
+[node name="Theater-stage-red-curtain" type="Sprite2D" parent="."]
+position = Vector2(389, 109)
+scale = Vector2(1.168, 1.11)
+texture = ExtResource("1_s5bbo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(374, 198)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7, 45)
+shape = SubResource("RectangleShape2D_o4rgk")
+debug_color = Color(0, 0.580392, 0.796078, 0.262745)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-489, -161)
+shape = SubResource("RectangleShape2D_lxcyh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(528, -167)
+shape = SubResource("RectangleShape2D_lxcyh")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_va5hl")]
+position = Vector2(235, 176)
+
+[node name="TomatoGenerator" type="Node2D" parent="."]
+position = Vector2(408, 344)
+script = ExtResource("3_w5t38")
+
+[node name="Tomato0" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato1" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato2" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato3" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato4" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato5" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+
+[node name="Tomato6" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato7" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato8" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false
+
+[node name="Tomato9" parent="TomatoGenerator" instance=ExtResource("3_mxnk8")]
+visible = false

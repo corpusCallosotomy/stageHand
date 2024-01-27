@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d240ni6f6ag6q"]
+
+[ext_resource type="Script" path="res://scripts/tomato.cs" id="1_t7j3j"]
+[ext_resource type="Texture2D" uid="uid://dgar350qfsdu1" path="res://sprites/microgame/tomato-dodging/tomatopng.png" id="1_vfqfj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1dppr"]
+radius = 23.0217
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_t7j3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1dppr")
+
+[node name="Tomatopng" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_vfqfj")
+
+[node name="MovementTimer" type="Timer" parent="."]
+
+[node name="ExplodeTimer" type="Timer" parent="."]
