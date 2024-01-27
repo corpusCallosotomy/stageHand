@@ -1,8 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706326461
+::res://::1706374646
 icon.svg::CompressedTexture2D::6627975546355813565::1706319995::1706319995::1::::<><>::
-player.cs::CSharpScript::-1::1706326334::0::1::::<>CharacterBody2D<>::
-Player.tscn::PackedScene::2282508438468451307::1706326498::0::1::::<><>::uid://c1ov127q7j15r::::res://icon.svg<>res://player.cs
+Player.tscn::PackedScene::2282508438468451307::1706326520::0::1::::<><>::uid://c1ov127q7j15r::::res://icon.svg<>res://scripts/player.cs
 player_movement.tscn::PackedScene::6198635564252038641::1706326461::0::1::::<><>::uid://7rwt0cc7i3wp::::res://Player.tscn
 ::res://addons/::1706319995
 ::res://addons/godot-git-plugin/::1706319995
@@ -11,9 +10,10 @@ plugin.cfg::TextFile::-1::1706319995::0::1::::<><>::
 THIRDPARTY.md::TextFile::-1::1706319995::0::1::::<><>::
 ::res://addons/godot-git-plugin/linux/::1706319995
 ::res://addons/godot-git-plugin/macos/::1706319995
-::res://addons/godot-git-plugin/win64/::1706320077
+::res://addons/godot-git-plugin/win64/::1706374640
 ::res://Backup/::1706323813
-::res://scripts/::1706322718
+::res://scripts/::1706326498
 globalSingleton.cs::CSharpScript::-1::1706322718::0::1::::<>Node<>::
+player.cs::CSharpScript::-1::1706326334::0::1::::<><>::
 ::res://sprites/::1706322576
 ::res://sprites/anim/::1706322576
