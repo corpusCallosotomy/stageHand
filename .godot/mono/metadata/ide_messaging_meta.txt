@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-﻿54148
-C:/Users/AFells/Downloads/Godot_v4.2.1-stable_mono_win64/Godot_v4.2.1-stable_mono_win64/Godot_v4.2.1-stable_mono_win64.exe
-=======
-﻿50217
-D:/Godot/4.2/Godot_v4.2-stable_mono_win64.exe
->>>>>>> main

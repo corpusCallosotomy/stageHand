@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://betrmri816dig"]
+
+[ext_resource type="Texture2D" uid="uid://7tpdmwt7supg" path="res://sprites/static/testrender.png" id="1_5imvx"]
+[ext_resource type="PackedScene" uid="uid://7rwt0cc7i3wp" path="res://Player.tscn" id="2_h4xbb"]
+[ext_resource type="PackedScene" uid="uid://b8pc6ejab5htj" path="res://TestInteraction.tscn" id="3_o4yde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq3y0"]
+size = Vector2(1034, 278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qet1"]
+size = Vector2(519, 978)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Testrender" type="Sprite2D" parent="."]
+texture = ExtResource("1_5imvx")
+centered = false
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_h4xbb")]
+position = Vector2(150, 566)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(516.8, 7.32705)
+scale = Vector2(28.3438, 18.2318)
+polygon = PackedVector2Array(-10.1767, -0.401883, -10.1413, 18.7953, -10.1413, 22.094, -10.106, 23.5882, -9.89399, 24.8836, -9.29329, 25.9806, -8.16255, 27.1324, -6.81979, 27.8022, -5.90106, 28.1685, -5.4417, 28.315, -4.52297, 28.3883, -3.53357, 28.3883, -2.65018, 28.3883, -1.37809, 28.3883, 0.141342, 28.3883, 1.94346, 28.3883, 3.63958, 28.3883, 5.19435, 28.315, 5.72438, 28.2418, 6.85512, 27.7289, 7.84452, 27.0696, 8.83392, 26.2548, 9.57597, 24.9384, 9.85866, 23.4575, 9.85866, 22.3605, 9.85866, 21.9217, 9.89399, -0.401883)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(507.786, 129)
+scale = Vector2(1.00155, 1)
+shape = SubResource("RectangleShape2D_aq3y0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(507.786, 833)
+scale = Vector2(1.00155, 1)
+shape = SubResource("RectangleShape2D_aq3y0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-259.902, 478)
+scale = Vector2(1.00155, 1)
+shape = SubResource("RectangleShape2D_0qet1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1284.99, 478)
+scale = Vector2(1.00155, 1)
+shape = SubResource("RectangleShape2D_0qet1")
+
+[node name="Area2D" parent="." instance=ExtResource("3_o4yde")]
+position = Vector2(882, 598)

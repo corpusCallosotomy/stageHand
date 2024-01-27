@@ -1,15 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "djat12DstrXwNQADUDwqWasIxxLo1FyYK63siXrAwlMMhiDnTZn6fGGa7OGWqHOD7on3Ib/A16ZMoQzl0Eh1ZA==",
+  "dgSpecHash": "0qX9ivwqbiSDBmwDcmV14x6tIpUYIpFH7IoIc6u7U+5SCq2AtVVEf6TkzFa2HxWGoKemql9zjHiCcj0FIuJ3hQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\AFells\\Documents\\GitHub\\stageHand\\stageHand.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\AFells\\.nuget\\packages\\godot.sourcegenerators\\4.2.0\\godot.sourcegenerators.4.2.0.nupkg.sha512",
-    "C:\\Users\\AFells\\.nuget\\packages\\godotsharp\\4.2.0\\godotsharp.4.2.0.nupkg.sha512",
-    "C:\\Users\\AFells\\.nuget\\packages\\godotsharpeditor\\4.2.0\\godotsharpeditor.4.2.0.nupkg.sha512",
-    "C:\\Users\\AFells\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\AFells\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\AFells\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+    "C:\\Users\\AFells\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
+    "C:\\Users\\AFells\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
+    "C:\\Users\\AFells\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512"
   ],
   "logs": []
 }

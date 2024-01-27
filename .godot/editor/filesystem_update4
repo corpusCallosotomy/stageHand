@@ -1,1 +1,9 @@
 res://scripts/globalSingleton.cs
+res://player_movement.tscn
+res://Player.tscn
+res://InteractionTestScene.tscn
+res://scripts/player.cs
+res://TestInteraction.tscn
+res://scripts/Playernew.cs
+res://set.tscn
+res://scripts/TestInteraction.cs
