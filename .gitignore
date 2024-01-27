@@ -14,3 +14,6 @@ mono_crash.*.json
 
 #Other
 .DS_Store
+
+# Visual Studio
+.vs
