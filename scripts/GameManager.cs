@@ -12,7 +12,11 @@ public partial class GameManager : Node2D
 		instance = this;
 	}
 
-
+	public void PlayMicrogame(int GameNumber)
+	{
+		
+		
+	}
 	
 
 }

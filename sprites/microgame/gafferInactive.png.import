@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44j8op0iyhmh"
-path="res://.godot/imported/WIPplayer2.png-823e2abf55245ec445bfa042327bf71a.ctex"
+uid="uid://bbh0kene7nr4g"
+path="res://.godot/imported/gafferInactive.png-26f92542a66572b13be6655b7d357df4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/anim/WIPplayer2.png"
-dest_files=["res://.godot/imported/WIPplayer2.png-823e2abf55245ec445bfa042327bf71a.ctex"]
+source_file="res://sprites/microgame/gafferInactive.png"
+dest_files=["res://.godot/imported/gafferInactive.png-26f92542a66572b13be6655b7d357df4.ctex"]
 
 [params]
 

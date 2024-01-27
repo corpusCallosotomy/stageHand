@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://betrmri816dig"]
+[gd_scene load_steps=7 format=3 uid="uid://bnx3entmvw7fr"]
 
 [ext_resource type="Texture2D" uid="uid://7tpdmwt7supg" path="res://sprites/static/testrender.png" id="1_5imvx"]
 [ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_jteog"]
-[ext_resource type="PackedScene" uid="uid://7rwt0cc7i3wp" path="res://scenes/Player.tscn" id="2_h4xbb"]
-[ext_resource type="PackedScene" uid="uid://b8pc6ejab5htj" path="res://scenes/TestInteraction.tscn" id="3_o4yde"]
+[ext_resource type="PackedScene" uid="uid://bsia0whh0l7oy" path="res://scenes/Player.tscn" id="2_h4xbb"]
+[ext_resource type="PackedScene" path="res://scenes/TestInteraction.tscn" id="3_o4yde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq3y0"]
 size = Vector2(1034, 278)

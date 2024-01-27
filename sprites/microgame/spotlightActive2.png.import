@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44j8op0iyhmh"
-path="res://.godot/imported/WIPplayer2.png-823e2abf55245ec445bfa042327bf71a.ctex"
+uid="uid://bu7wiv76shd34"
+path="res://.godot/imported/spotlightActive2.png-5e6a89f97d8886feb4594a5d420ee548.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/anim/WIPplayer2.png"
-dest_files=["res://.godot/imported/WIPplayer2.png-823e2abf55245ec445bfa042327bf71a.ctex"]
+source_file="res://sprites/microgame/spotlightActive2.png"
+dest_files=["res://.godot/imported/spotlightActive2.png-5e6a89f97d8886feb4594a5d420ee548.ctex"]
 
 [params]
 
