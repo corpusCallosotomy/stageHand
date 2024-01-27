@@ -14,6 +14,13 @@ config/name="stageHand"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=768
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+
 [dotnet]
 
 project/assembly_name="stageHand"
