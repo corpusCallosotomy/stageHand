@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnduyg3e6back"
+path="res://.godot/imported/StartGame_Chime.wav-fb93937f56377f5f557d813a3e871ac2.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/StartGame_Chime.wav"
+dest_files=["res://.godot/imported/StartGame_Chime.wav-fb93937f56377f5f557d813a3e871ac2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

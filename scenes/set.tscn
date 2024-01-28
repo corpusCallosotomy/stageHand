@@ -58,22 +58,22 @@ shape = SubResource("RectangleShape2D_0qet1")
 stream = ExtResource("5_fhycc")
 autoplay = true
 
-[node name="Area2D2" parent="." instance=ExtResource("6_ffltd")]
+[node name="Newspaper2" parent="." instance=ExtResource("6_ffltd")]
 position = Vector2(72, 515)
 
-[node name="Area2D6" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("6_ffltd")]
+[node name="Newspaper" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("6_ffltd")]
 position = Vector2(956, 519)
-MicroGameParent = NodePath("../Area2D2/Node2D")
+MicroGameParent = NodePath("../Newspaper2/Node2D")
 
-[node name="Area2D3" parent="." instance=ExtResource("7_8j6qq")]
+[node name="Microphone" parent="." instance=ExtResource("7_8j6qq")]
 position = Vector2(234, 264)
 
-[node name="Area2D4" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("7_8j6qq")]
+[node name="Microphone2" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("7_8j6qq")]
 position = Vector2(788, 264)
 scale = Vector2(-1, 1)
-MicroGameParent = NodePath("../Area2D3/Node2D")
+MicroGameParent = NodePath("../Microphone/Node2D")
 
-[node name="Area2D5" parent="." instance=ExtResource("8_seu2t")]
+[node name="Tomato" parent="." instance=ExtResource("8_seu2t")]
 position = Vector2(513, 692)
 
 [node name="TaskCountdown" type="Timer" parent="."]

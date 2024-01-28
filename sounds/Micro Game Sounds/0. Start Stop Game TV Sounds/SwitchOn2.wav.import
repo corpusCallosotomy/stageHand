@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://luk0wc3kox3y"
+path="res://.godot/imported/SwitchOn2.wav-134477a2ae92fc631b4d997bc815bd9f.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/0. Start Stop Game TV Sounds/SwitchOn2.wav"
+dest_files=["res://.godot/imported/SwitchOn2.wav-134477a2ae92fc631b4d997bc815bd9f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

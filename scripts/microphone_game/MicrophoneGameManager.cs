@@ -3,10 +3,12 @@ using System;
 
 public partial class MicrophoneGameManager : Node2D
 {
+	private TreeSceneManager treeSceneManager;
 
 	public enum GameState
 	{
 		Initializing,
+		Prompt,
 		Playing,
 		Checking,
 		Failed,
@@ -20,11 +22,19 @@ public partial class MicrophoneGameManager : Node2D
 	Node2D microphoneOutlineNode = null;
 	Label statusLabel = null;
 
+	Sprite2D prompt = null;
+	Sprite2D smallPrompt = null;
+
 	bool waitingForTime = false;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	AudioStreamPlayer audioPlayer = null;
+
+    Random rnd = new Random();
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
+		GetTreeSceneManager();
 		Godot.Collections.Array<Node> children = this.GetChildren();
 
 		GD.Print("Game State: " + state);
@@ -47,7 +57,19 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				statusLabel = (Label) child;
 			}
-		}
+			else if (child.Name == "Prompt")
+			{
+                prompt = (Sprite2D) child;
+			}
+            else if (child.Name == "SmallPrompt")
+            {
+                smallPrompt = (Sprite2D) child;
+            }
+			else if (child.Name == "AudioPlayer")
+			{
+				audioPlayer = (AudioStreamPlayer) child;
+			}
+        }
 		GD.Print("Done Collecting Children");
 
 	}
@@ -65,16 +87,35 @@ public partial class MicrophoneGameManager : Node2D
 
 		if (state == GameState.Initializing)
 		{
-			statusLabel.Visible = false;
+			//statusLabel.Visible = false;
 
 			//microphoneNode.setRandomRotation();
-			Random rnd = new Random();
-			float num = (float)rnd.Next(20, 50);
+			
+			float num = (float)rnd.Next(10, 34);
 			microphoneOutlineNode.RotationDegrees = num;
 
-			state = GameState.Playing;
-			microphoneNode.setMovable(true);
+			state = GameState.Prompt;
+			microphoneNode.setMovable(false);
 			GD.Print("Moving to state: " + state);
+
+			prompt.Visible = true;
+			smallPrompt.Visible = false;
+			waitingForTime = true;
+			waitForTime();
+            audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/StartGame_Chime.wav");
+            audioPlayer.Play();
+
+            microphoneNode.setMovable(false);
+		}
+		else if (state == GameState.Prompt)
+		{
+			if (!waitingForTime)
+			{
+                prompt.Visible = false;
+                smallPrompt.Visible = true;
+                state = GameState.Playing;
+                microphoneNode.setMovable(true);
+            }
 		}
 		else if (state == GameState.Playing)
 		{
@@ -94,6 +135,12 @@ public partial class MicrophoneGameManager : Node2D
 			//	state = GameState.Checking;
 			//	GD.Print("Moving to state: " + state);
 			//}
+			if(microphoneNode.getAtInitialPos())
+			{
+
+				audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/Gaffer Game/GafferSwoosh" + rnd.Next(1, 4) +".wav");
+				audioPlayer.Play();
+			}
 			if (Input.IsMouseButtonPressed(MouseButton.Left))
 			{
 				state = GameState.Checking;
@@ -111,9 +158,9 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				GD.Print("Passed!");
 				state = GameState.Passed;
-				statusLabel.Text = "Passed!";
-				statusLabel.SelfModulate = new Color(0, 1, 0);
-				statusLabel.Visible = true;
+				///statusLabel.Text = "Passed!";
+				//statusLabel.SelfModulate = new Color(0, 1, 0);
+				//statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}
@@ -121,9 +168,9 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				GD.Print("Failed!");
 				state = GameState.Failed;
-				statusLabel.Text = "Failed!";
-				statusLabel.SelfModulate = new Color(1, 0, 0);
-				statusLabel.Visible = true;
+				//statusLabel.Text = "Failed!";
+				//statusLabel.SelfModulate = new Color(1, 0, 0);
+				//statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}
@@ -153,5 +200,23 @@ public partial class MicrophoneGameManager : Node2D
 	{
 		await ToSignal(GetTree().CreateTimer(1.5), "timeout");
 		waitingForTime = false;
+		endScene();
+	}
+	private void endScene() 
+	{
+		if(treeSceneManager != null)
+			treeSceneManager.BackToMainScene();
+		QueueFree();
+	}
+
+	private void GetTreeSceneManager()
+	{
+		Node temp = GetParent();
+		if(temp != null)
+			temp = temp.GetParent();
+		if(temp != null)
+			temp = temp.GetParent();
+		if(temp != null)
+			treeSceneManager = (TreeSceneManager) temp;
 	}
 }
