@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c43k3gocdcbrr"]
+
+[ext_resource type="Script" path="res://scripts/TestInteraction.cs" id="1_yh0kf"]
+[ext_resource type="Texture2D" uid="uid://bq1bqvip6luqa" path="res://sprites/microgame/coffeeInactive.png" id="2_5akj7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qslcu"]
+radius = 90.0
+
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("MicroGameParent") groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_yh0kf")
+MicroGameParent = NodePath("Node2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qslcu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 1, 1, 1)
+self_modulate = Color(1, 1, 0, 1)
+texture = ExtResource("2_5akj7")
+
+[node name="Node2D" type="Node2D" parent="."]
