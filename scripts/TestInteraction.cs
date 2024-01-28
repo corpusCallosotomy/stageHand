@@ -8,8 +8,8 @@ public partial class TestInteraction : Area2D
 	public void Use()
 	{
 		
-		Node nodeInstance = ResourceLoader.Load<PackedScene>("res://scenes/microgame/MicrophoneGame.tscn").Instantiate();
-		AddChild(Microgame);
+		//Node nodeInstance = ResourceLoader.Load<PackedScene>("res://scenes/microgame/MicrophoneGame.tscn").Instantiate();
+		//AddChild(Microgame);
 		GD.Print("ooooo");
 	}
 }
