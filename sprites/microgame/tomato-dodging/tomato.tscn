@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bugx6ubpqvx7k"]
+[gd_scene load_steps=4 format=3 uid="uid://bugx6ubpqvx7k"]
 
 [ext_resource type="Script" path="res://scripts/Tomato.cs" id="1_brybj"]
-[ext_resource type="Texture2D" uid="uid://bmr6hh0otqn8d" path="res://sprites/microgame/tomato-dodging/tomatoThrow.png" id="2_cvhto"]
-[ext_resource type="Texture2D" uid="uid://du0cg7kgsi8p7" path="res://sprites/microgame/tomato-dodging/splat1.png" id="3_pxka1"]
-
+[ext_resource type="Texture2D" uid="uid://cenq0o13v78lu" path="res://sprites/microgame/tomato-dodging/tomatoThrow.png" id="2_cvhto"]
+[ext_resource type="Texture2D" uid="uid://d26vfwt7dnxml" path="res://sprites/microgame/tomato-dodging/splat1.png" id="3_pxka1"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_brybj")
@@ -12,6 +11,7 @@ script = ExtResource("1_brybj")
 scale = Vector2(2, 2)
 texture = ExtResource("2_cvhto")
 
-[node name="Squishedtomato2" type="AnimatedSprite2D" parent="."]
+[node name="Squishedtomato" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(-2, -1)
 texture = ExtResource("3_pxka1")
