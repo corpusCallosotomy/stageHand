@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cwaruclpn7kxo" path="res://sprites/anim/host/host1.png" id="4_krpu5"]
 [ext_resource type="Texture2D" uid="uid://48ae243an4pv" path="res://sprites/anim/host/host2.png" id="5_ch1ey"]
 [ext_resource type="AudioStream" uid="uid://ixmhgxb5k3ky" path="res://sounds/Talk_Show_Concept2_v.2.wav" id="5_fhycc"]
-[ext_resource type="PackedScene" uid="uid://c43k3gocdcbrr" path="res://scenes/Coffee.tscn" id="6_ffltd"]
+[ext_resource type="PackedScene" uid="uid://c43k3gocdcbrr" path="res://scenes/News.tscn" id="6_ffltd"]
 [ext_resource type="PackedScene" uid="uid://c872t4veb8gxi" path="res://scenes/MicroPhoneInteractable.tscn" id="7_8j6qq"]
 [ext_resource type="PackedScene" uid="uid://cnuqdeo14dm70" path="res://scenes/Audience.tscn" id="8_seu2t"]
 [ext_resource type="Texture2D" uid="uid://c2c6l343p7m7x" path="res://sprites/microgame/spotlightInactive.png" id="10_nahii"]
@@ -83,17 +83,15 @@ stream = ExtResource("5_fhycc")
 [node name="Newspaper2" parent="." instance=ExtResource("6_ffltd")]
 position = Vector2(72, 515)
 
-[node name="Newspaper" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("6_ffltd")]
+[node name="Newspaper" parent="." instance=ExtResource("6_ffltd")]
 position = Vector2(956, 519)
-MicroGameParent = NodePath("../Newspaper2/Node2D")
 
 [node name="Microphone" parent="." instance=ExtResource("7_8j6qq")]
 position = Vector2(234, 264)
 
-[node name="Microphone2" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("7_8j6qq")]
+[node name="Microphone2" parent="." instance=ExtResource("7_8j6qq")]
 position = Vector2(788, 264)
 scale = Vector2(-1, 1)
-MicroGameParent = NodePath("../Microphone/Node2D")
 
 [node name="Tomato" parent="." instance=ExtResource("8_seu2t")]
 position = Vector2(513, 692)
