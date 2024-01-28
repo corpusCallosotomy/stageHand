@@ -87,7 +87,7 @@ public partial class MicrophoneGameManager : Node2D
 
 		if (state == GameState.Initializing)
 		{
-			//statusLabel.Visible = false;
+			statusLabel.Visible = false;
 
 			//microphoneNode.setRandomRotation();
 			
@@ -160,7 +160,7 @@ public partial class MicrophoneGameManager : Node2D
 				state = GameState.Passed;
 				///statusLabel.Text = "Passed!";
 				//statusLabel.SelfModulate = new Color(0, 1, 0);
-				//statusLabel.Visible = true;
+				statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}
@@ -168,14 +168,14 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				GD.Print("Failed!");
 				state = GameState.Failed;
-				//statusLabel.Text = "Failed!";
+				statusLabel.Text = "Failed!";
 				//statusLabel.SelfModulate = new Color(1, 0, 0);
-				//statusLabel.Visible = true;
+				statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}
 		}
-		else if (state == GameState.Passed || state == GameState.Failed)
+		else if (state == GameState.Failed)
 		{
 
 			// wait for some number of seconds
@@ -186,6 +186,10 @@ public partial class MicrophoneGameManager : Node2D
 				// waitForTime();
 
 			}
+		}
+		else if (state == GameState.Passed)
+		{
+			endScene();
 		}
 		//else if (state == GameState.Restarting)
 		//{
@@ -200,7 +204,7 @@ public partial class MicrophoneGameManager : Node2D
 	{
 		await ToSignal(GetTree().CreateTimer(1.5), "timeout");
 		waitingForTime = false;
-		endScene();
+		
 	}
 	private void endScene() 
 	{
