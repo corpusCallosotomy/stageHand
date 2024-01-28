@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnuqdeo14dm70"]
+[gd_scene load_steps=9 format=3 uid="uid://cnuqdeo14dm70"]
 
-[ext_resource type="Script" path="res://scripts/TestInteraction.cs" id="1_k2aqq"]
-[ext_resource type="Texture2D" uid="uid://doed4pgncg7u8" path="res://sprites/anim/audience/audience1.png" id="2_2yn1o"]
-[ext_resource type="Texture2D" uid="uid://d2th0gfrk5qxk" path="res://sprites/anim/audience/audience2.png" id="3_jmqfy"]
+[ext_resource type="Script" path="res://scripts/MicrogameIcon.cs" id="1_6iyns"]
+[ext_resource type="Texture2D" uid="uid://dlelq028ivpg" path="res://sprites/anim/audience/audience1.png" id="2_2yn1o"]
+[ext_resource type="Texture2D" uid="uid://dfqdlytblxknc" path="res://sprites/anim/audience/audience2.png" id="3_jmqfy"]
+[ext_resource type="Texture2D" uid="uid://c2c6l343p7m7x" path="res://sprites/microgame/spotlightInactive.png" id="4_4c7wh"]
+[ext_resource type="Texture2D" uid="uid://bu7wiv76shd34" path="res://sprites/microgame/spotlightActive2.png" id="5_neh3o"]
+[ext_resource type="Texture2D" uid="uid://dxtufaxbopnwf" path="res://sprites/microgame/spotlightActive1.png" id="6_hv8ga"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qslcu"]
 radius = 90.0
@@ -21,11 +24,10 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Area2D" type="Area2D" node_paths=PackedStringArray("MicroGameParent") groups=["Interactable"]]
+[node name="Area2D" type="Area2D" groups=["Interactable"]]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_k2aqq")
-MicroGameParent = NodePath("Node2D")
+script = ExtResource("1_6iyns")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qslcu")
@@ -40,3 +42,17 @@ autoplay = "default"
 frame_progress = 0.188439
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Inactive" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, -14)
+texture = ExtResource("4_4c7wh")
+
+[node name="Active" type="Sprite2D" parent="."]
+position = Vector2(-2, -12)
+texture = ExtResource("5_neh3o")
+
+[node name="Completed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2, -13)
+texture = ExtResource("6_hv8ga")

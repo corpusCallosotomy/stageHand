@@ -1,21 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://c872t4veb8gxi"]
+[gd_scene load_steps=6 format=3 uid="uid://c872t4veb8gxi"]
 
-[ext_resource type="Script" path="res://scripts/TestInteraction.cs" id="1_8cpq7"]
-[ext_resource type="Texture2D" uid="uid://c74ype3vu4c6d" path="res://sprites/microgame/gafferInactive.png" id="2_qfkru"]
+[ext_resource type="Script" path="res://scripts/MicrogameIcon.cs" id="1_61qpp"]
+[ext_resource type="Texture2D" uid="uid://bbh0kene7nr4g" path="res://sprites/microgame/gafferInactive.png" id="2_qfkru"]
+[ext_resource type="Texture2D" uid="uid://dslktq7s7ways" path="res://sprites/microgame/gafferActive2.png" id="3_rufym"]
+[ext_resource type="Texture2D" uid="uid://bbmd2wv5hbims" path="res://sprites/microgame/gafferActive1.png" id="4_dwkq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qslcu"]
 radius = 90.0
 
-[node name="Area2D" type="Area2D" node_paths=PackedStringArray("MicroGameParent") groups=["Interactable"]]
+[node name="Area2D" type="Area2D" groups=["Interactable"]]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_8cpq7")
-MicroGameParent = NodePath("Node2D")
+script = ExtResource("1_61qpp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qslcu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Inactive" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_qfkru")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Active" type="Sprite2D" parent="."]
+texture = ExtResource("3_rufym")
+
+[node name="Completed" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_dwkq0")

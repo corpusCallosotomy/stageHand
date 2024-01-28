@@ -214,7 +214,7 @@ public partial class NewspaperGameManager : Node2D
 				state = GameState.Passed;
 				waitingForTime = true;
 				waitForTime();
-				endScene();
+				endSceneWaitForTime();
 			}
 		}
 		else if (state == GameState.Passed)
@@ -233,6 +233,12 @@ public partial class NewspaperGameManager : Node2D
 	{
 		await ToSignal(GetTree().CreateTimer(1.5), "timeout");
 		waitingForTime = false;
+	}
+	async void endSceneWaitForTime()
+	{
+		await ToSignal(GetTree().CreateTimer(1.5), "timeout");
+		waitingForTime = false;
+		endScene();
 	}
 
 	private void endScene() 
