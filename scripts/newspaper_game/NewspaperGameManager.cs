@@ -62,7 +62,9 @@ public partial class NewspaperGameManager : Node2D
         if (state == GameState.Initializing)
         {
             statusLabel.Text = "";
+            target_newspaper = rnd.Next(newspapers.Count);
             requestLabel.Text = "Please provide newspaper: " + newspaper_letters[target_newspaper];
+            GD.Print("Target Newspaper: " + target_newspaper);
             foreach(Newspaper newspaper in newspapers)
             {
                 
@@ -71,7 +73,7 @@ public partial class NewspaperGameManager : Node2D
                 newspaper.GlobalPosition = new Vector2(random_x, random_y);
             }
 
-            target_newspaper = rnd.Next(newspapers.Count);
+            
 
 
             state = GameState.Playing;
@@ -79,6 +81,7 @@ public partial class NewspaperGameManager : Node2D
         else if (state == GameState.Playing){
             num_newspapers_in_zone = 0;
             correct_newspaper_in_zone = false;
+            GD.Print("Looking for newspaper: " +target_newspaper);
             foreach (Newspaper newspaper in newspapers)
             {
                 if (newspaper.GlobalPosition.X > 500)
@@ -89,16 +92,19 @@ public partial class NewspaperGameManager : Node2D
                     {
                         correct_newspaper_in_zone = true;
                     }
-                }
 
-                if (correct_newspaper_in_zone && num_newspapers_in_zone == 1)
-                {
-                    state = GameState.Passed;
-                    waitingForTime = true;
-                    waitForTime();
+                    GD.Print("Newspaper " + newspaper.GetMeta("newspaper_index").AsInt32() + " in zone");
                 }
-
                 
+            }
+
+            GD.Print("Num Papers in Zone: " + num_newspapers_in_zone);
+            GD.Print("Correct Newspaper in Zone: " + correct_newspaper_in_zone);
+            if (correct_newspaper_in_zone && num_newspapers_in_zone == 1)
+            {
+                state = GameState.Passed;
+                waitingForTime = true;
+                waitForTime();
             }
         }
         else if (state == GameState.Passed)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnrriewfwgddg"]
+[gd_scene load_steps=6 format=3 uid="uid://cnrriewfwgddg"]
 
 [ext_resource type="Script" path="res://scripts/newspaper_game/NewspaperGameManager.cs" id="1_g5hup"]
-[ext_resource type="Texture2D" uid="uid://clhrax4esfork" path="res://sprites/microgame/newspaper_game/newspaper.png" id="1_qk4le"]
 [ext_resource type="Script" path="res://scripts/newspaper_game/Newspaper.cs" id="2_bn6le"]
+[ext_resource type="Texture2D" uid="uid://vfqdg8bv6upn" path="res://sprites/microgame/newspaper_game/A_paper.png" id="2_xjevg"]
+[ext_resource type="Texture2D" uid="uid://cbpu0ba6ho3pa" path="res://sprites/microgame/newspaper_game/P_paper.png" id="4_iwuhw"]
+[ext_resource type="Texture2D" uid="uid://cvru723yxqjbk" path="res://sprites/microgame/newspaper_game/L_paper.png" id="5_eq6u3"]
 
 [node name="NewspaperGameManager" type="Node2D"]
 script = ExtResource("1_g5hup")
@@ -20,53 +22,41 @@ offset_right = 1024.0
 offset_bottom = 765.0
 color = Color(0.835294, 0.780392, 0.796078, 1)
 
-[node name="Newspaper1" type="TextureButton" parent="."]
+[node name="Newspaper3" type="TextureButton" parent="."]
 modulate = Color(0.870588, 0.847059, 0.917647, 1)
-offset_left = 236.0
-offset_top = 231.0
-offset_right = 10792.0
-offset_bottom = 10007.0
-scale = Vector2(0.01, 0.01)
+offset_left = 174.0
+offset_top = 430.0
+offset_right = 434.0
+offset_bottom = 656.0
+scale = Vector2(0.5, 0.5)
 tooltip_text = "Text"
-texture_normal = ExtResource("1_qk4le")
+texture_normal = ExtResource("2_xjevg")
 script = ExtResource("2_bn6le")
-metadata/newspaper_index = 0
+metadata/newspaper_index = 2
 
 [node name="Newspaper2" type="TextureButton" parent="."]
 modulate = Color(0.870588, 0.847059, 0.917647, 1)
-offset_left = 57.5758
-offset_top = 64.6465
-offset_right = 10613.6
-offset_bottom = 9840.65
-scale = Vector2(0.01, 0.01)
+offset_left = 37.0
+offset_top = 260.0
+offset_right = 297.0
+offset_bottom = 486.0
+scale = Vector2(0.5, 0.5)
 tooltip_text = "Text"
-texture_normal = ExtResource("1_qk4le")
+texture_normal = ExtResource("4_iwuhw")
 script = ExtResource("2_bn6le")
 metadata/newspaper_index = 1
 
-[node name="Newspaper4" type="TextureButton" parent="."]
+[node name="Newspaper1" type="TextureButton" parent="."]
 modulate = Color(0.870588, 0.847059, 0.917647, 1)
-offset_left = 55.55
-offset_top = 312.09
-offset_right = 10611.5
-offset_bottom = 10088.1
-scale = Vector2(0.01, 0.01)
+offset_left = 247.0
+offset_top = 146.0
+offset_right = 507.0
+offset_bottom = 372.0
+scale = Vector2(0.5, 0.5)
 tooltip_text = "Text"
-texture_normal = ExtResource("1_qk4le")
+texture_normal = ExtResource("5_eq6u3")
 script = ExtResource("2_bn6le")
-metadata/newspaper_index = 3
-
-[node name="Newspaper3" type="TextureButton" parent="."]
-modulate = Color(0.870588, 0.847059, 0.917647, 1)
-offset_left = 217.0
-offset_top = 490.0
-offset_right = 10773.0
-offset_bottom = 10266.0
-scale = Vector2(0.01, 0.01)
-tooltip_text = "Text"
-texture_normal = ExtResource("1_qk4le")
-script = ExtResource("2_bn6le")
-metadata/newspaper_index = 2
+metadata/newspaper_index = 0
 
 [node name="RequestLabel" type="Label" parent="."]
 modulate = Color(0.117647, 0.545098, 0.917647, 1)
