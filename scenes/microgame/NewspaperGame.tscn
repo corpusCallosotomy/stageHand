@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnrriewfwgddg"]
+[gd_scene load_steps=9 format=3 uid="uid://cnrriewfwgddg"]
 
 [ext_resource type="Script" path="res://scripts/newspaper_game/NewspaperGameManager.cs" id="1_g5hup"]
 [ext_resource type="Script" path="res://scripts/newspaper_game/Newspaper.cs" id="2_bn6le"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://csa25oad5tgx" path="res://sprites/microgame/newspaper_game/newspaperP.png" id="5_domtc"]
 [ext_resource type="Texture2D" uid="uid://ccy0we7bx7pvd" path="res://sprites/microgame/newspaper_game/newspaperL.png" id="6_t4bxe"]
 [ext_resource type="Texture2D" uid="uid://bdbmoe8nxha6y" path="res://sprites/microgame/promptNewspaper.png" id="7_6d27k"]
+[ext_resource type="Texture2D" uid="uid://ci1j7mrkns3tl" path="res://sprites/microgame/newspaper_game/aPaper.png" id="8_r0hjf"]
 
 [node name="NewspaperGameManager" type="Node2D"]
 script = ExtResource("1_g5hup")
@@ -15,6 +16,11 @@ script = ExtResource("1_g5hup")
 position = Vector2(511.75, 384.25)
 scale = Vector2(1.31759, 1.27889)
 texture = ExtResource("2_d7b1e")
+
+[node name="Letter" type="Sprite2D" parent="."]
+position = Vector2(808, 410)
+scale = Vector2(1.69512, 1.69512)
+texture = ExtResource("8_r0hjf")
 
 [node name="Newspaper3" type="TextureButton" parent="."]
 modulate = Color(0.870588, 0.847059, 0.917647, 1)
@@ -53,6 +59,7 @@ script = ExtResource("2_bn6le")
 metadata/newspaper_index = 0
 
 [node name="RequestLabel" type="Label" parent="."]
+visible = false
 modulate = Color(0.968627, 0, 0, 1)
 offset_left = 640.0
 offset_top = 103.0
@@ -71,6 +78,11 @@ scale = Vector2(1.755, 1.755)
 text = "Success!"
 
 [node name="Prompt" type="Sprite2D" parent="."]
-position = Vector2(537, 374)
-scale = Vector2(3.025, 3.025)
+position = Vector2(479, 337)
+scale = Vector2(2.74375, 2.74375)
+texture = ExtResource("7_6d27k")
+
+[node name="SmallPrompt" type="Sprite2D" parent="."]
+position = Vector2(503, 66)
+scale = Vector2(1.08682, 1.06954)
 texture = ExtResource("7_6d27k")

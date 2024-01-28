@@ -29,6 +29,10 @@ public partial class NewspaperGameManager : Node2D
 
     Sprite2D fetchPrompt = null;
 
+    Sprite2D smallFetchPrompt = null;
+
+    Sprite2D letterID = null;
+
     String[] newspaper_letters = {"L","P","A"};
 
 
@@ -57,6 +61,14 @@ public partial class NewspaperGameManager : Node2D
             {
                 fetchPrompt = (Sprite2D) child;
             }
+            else if (child.Name == "SmallPrompt")
+            {
+                smallFetchPrompt = (Sprite2D) child;
+            }
+            else if (child.Name == "Letter")
+            {
+                letterID = (Sprite2D) child;
+            }
 
         }
 
@@ -79,9 +91,22 @@ public partial class NewspaperGameManager : Node2D
             target_newspaper = rnd.Next(newspapers.Count);
             requestLabel.Text = "Please provide newspaper: " + newspaper_letters[target_newspaper];
             GD.Print("Target Newspaper: " + target_newspaper);
-            
-            
-            foreach(Newspaper newspaper in newspapers)
+
+            if (target_newspaper == 0)
+            {
+                letterID.Texture = GD.Load<Texture2D>("res://sprites/microgame/newspaper_game/lPaper.png");
+            }
+            else if (target_newspaper == 1)
+            {
+                letterID.Texture = GD.Load<Texture2D>("res://sprites/microgame/newspaper_game/pPaper.png");
+            }
+            else if (target_newspaper == 2)
+            {
+                letterID.Texture = GD.Load<Texture2D>("res://sprites/microgame/newspaper_game/aPaper.png");
+            }
+
+
+            foreach (Newspaper newspaper in newspapers)
             {
                 
                 float random_x = (float) rnd.Next(0, 500);
@@ -109,8 +134,11 @@ public partial class NewspaperGameManager : Node2D
 
             this.RemoveChild(fetchPrompt);
             this.AddChild(fetchPrompt);
+            this.RemoveChild(smallFetchPrompt);
+            this.AddChild(smallFetchPrompt);
             state = GameState.Prompt;
             fetchPrompt.Visible = true;
+            smallFetchPrompt.Visible = false;
             waitingForTime = true;
             waitForTime();
         }
@@ -120,6 +148,7 @@ public partial class NewspaperGameManager : Node2D
             {
                 state = GameState.Playing;
                 fetchPrompt.Visible = false;
+                smallFetchPrompt.Visible = true;
             }
         }
         else if (state == GameState.Playing){
