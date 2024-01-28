@@ -21,11 +21,12 @@ public partial class NewspaperGameManager : Node2D
 
     //TextureButton btnTemplate = null;
     Godot.Collections.Array<Newspaper> newspapers = new Godot.Collections.Array<Newspaper>{ };
+    Godot.Collections.Array<Newspaper> added_newspapers = new Godot.Collections.Array<Newspaper> { };
 
     Label statusLabel = null;
     Label requestLabel = null;
 
-    String[] newspaper_letters = {"L","P","A","Q","N","R","G","S"};
+    String[] newspaper_letters = {"L","P","A"};
 
 
     public override void _Ready()
@@ -61,19 +62,38 @@ public partial class NewspaperGameManager : Node2D
 
         if (state == GameState.Initializing)
         {
+            foreach (Newspaper addedNewspaper in added_newspapers)
+            {
+                this.RemoveChild(addedNewspaper);
+            }
+            added_newspapers = new Godot.Collections.Array<Newspaper> { };
+
             statusLabel.Text = "";
             target_newspaper = rnd.Next(newspapers.Count);
             requestLabel.Text = "Please provide newspaper: " + newspaper_letters[target_newspaper];
             GD.Print("Target Newspaper: " + target_newspaper);
+            
+            
             foreach(Newspaper newspaper in newspapers)
             {
                 
-                float random_x = (float) rnd.Next(50, 450);
-                float random_y = (float) rnd.Next(50, 750);
+                float random_x = (float) rnd.Next(50, 400);
+                float random_y = (float) rnd.Next(0, 700);
                 newspaper.GlobalPosition = new Vector2(random_x, random_y);
-            }
 
-            
+                if (newspaper.GetMeta("newspaper_index").AsInt32() != target_newspaper) 
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        random_x = (float)rnd.Next(50, 400);
+                        random_y = (float)rnd.Next(0, 700);
+                        Newspaper newNewspaper = (Newspaper)newspaper.Duplicate();
+                        newNewspaper.GlobalPosition = new Vector2(random_x, random_y);
+                        this.AddChild(newNewspaper);
+                        added_newspapers.Add(newNewspaper);
+                    }
+                }
+            }
 
 
             state = GameState.Playing;
