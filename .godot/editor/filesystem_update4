@@ -1,3 +1,4 @@
+res://scenes/MicrophoneRecorder.tscn
 res://scenes/player_movement.tscn
 res://scenes/Player.tscn
 res://scenes/InteractionTestScene.tscn
@@ -5,10 +6,11 @@ res://scenes/Audience.tscn
 res://scenes/set.tscn
 res://scenes/CoffeeMicroGame.tscn
 res://scenes/MicroPhoneInteractable.tscn
-res://scenes/Coffee.tscn
 res://scenes/microgame/tomato-dodging/tomato-dodging.tscn
+res://scenes/microgame/tomato-dodging/temp_player.tscn
 res://scenes/CoffeeMicroGame.cs
 res://scenes/microgame/tomato-dodging/temp_player.cs
+res://scenes/MicrophoneRecorder.cs
 res://scripts/GameManager.cs
 res://scripts/globalSingleton.cs
 res://scripts/microphone_game/Microphone.cs
@@ -22,5 +24,6 @@ res://scripts/Tomato.cs
 res://scripts/TomatoGameManager.cs
 res://scripts/TomatoGenerator.cs
 res://scripts/TomatoHitBox.cs
-res://sprites/microgame/tomato-dodging/tomato.tscn
-res://scenes/microgame/tomato-dodging/temp_player.tscn
+res://default_bus_layout.tres
+res://Sign.cs
+res://sign.tscn

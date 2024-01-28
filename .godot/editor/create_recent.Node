@@ -1,7 +1,8 @@
-AnimatedSprite2D
-Timer
-AudioStreamPlayer
 Sprite2D
+AnimatedSprite2D
+Button
+AudioStreamPlayer
+Timer
 Node2D
 StaticBody2D
 RigidBody2D

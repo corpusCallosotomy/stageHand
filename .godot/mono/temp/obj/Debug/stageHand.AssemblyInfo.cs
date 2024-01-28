@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("stageHand")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f118484c000dfc6ee7603e212f3005786c599e0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+caba9811cff86d7498a23c61c3b523dabe7ab3f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("stageHand")]
 [assembly: System.Reflection.AssemblyTitleAttribute("stageHand")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

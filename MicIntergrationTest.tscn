@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://xfeonwmh6r5h"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_oksop"]
+
+[node name="MicrophoneRecorder" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamRecorder" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_oksop")
