@@ -1,36 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnrriewfwgddg"]
+[gd_scene load_steps=8 format=3 uid="uid://cnrriewfwgddg"]
 
 [ext_resource type="Script" path="res://scripts/newspaper_game/NewspaperGameManager.cs" id="1_g5hup"]
 [ext_resource type="Script" path="res://scripts/newspaper_game/Newspaper.cs" id="2_bn6le"]
-[ext_resource type="Texture2D" uid="uid://vfqdg8bv6upn" path="res://sprites/microgame/newspaper_game/A_paper.png" id="2_xjevg"]
-[ext_resource type="Texture2D" uid="uid://cbpu0ba6ho3pa" path="res://sprites/microgame/newspaper_game/P_paper.png" id="4_iwuhw"]
-[ext_resource type="Texture2D" uid="uid://cvru723yxqjbk" path="res://sprites/microgame/newspaper_game/L_paper.png" id="5_eq6u3"]
+[ext_resource type="Texture2D" uid="uid://w5v6bj7r58td" path="res://sprites/microgame/newspaper_game/newspaperBackground.png" id="2_d7b1e"]
+[ext_resource type="Texture2D" uid="uid://bnxxwnbi2wxax" path="res://sprites/microgame/newspaper_game/newspaperA.png" id="3_5vm7w"]
+[ext_resource type="Texture2D" uid="uid://csa25oad5tgx" path="res://sprites/microgame/newspaper_game/newspaperP.png" id="5_domtc"]
+[ext_resource type="Texture2D" uid="uid://ccy0we7bx7pvd" path="res://sprites/microgame/newspaper_game/newspaperL.png" id="6_t4bxe"]
+[ext_resource type="Texture2D" uid="uid://bdbmoe8nxha6y" path="res://sprites/microgame/promptNewspaper.png" id="7_6d27k"]
 
 [node name="NewspaperGameManager" type="Node2D"]
 script = ExtResource("1_g5hup")
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 506.0
-offset_bottom = 768.0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 507.0
-offset_top = 3.0
-offset_right = 1024.0
-offset_bottom = 765.0
-color = Color(0.835294, 0.780392, 0.796078, 1)
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(511.75, 384.25)
+scale = Vector2(1.31759, 1.27889)
+texture = ExtResource("2_d7b1e")
 
 [node name="Newspaper3" type="TextureButton" parent="."]
 modulate = Color(0.870588, 0.847059, 0.917647, 1)
 offset_left = 174.0
 offset_top = 430.0
-offset_right = 434.0
-offset_bottom = 656.0
+offset_right = 360.0
+offset_bottom = 667.0
 scale = Vector2(0.5, 0.5)
 tooltip_text = "Text"
-texture_normal = ExtResource("2_xjevg")
+texture_normal = ExtResource("3_5vm7w")
 script = ExtResource("2_bn6le")
 metadata/newspaper_index = 2
 
@@ -38,11 +32,11 @@ metadata/newspaper_index = 2
 modulate = Color(0.870588, 0.847059, 0.917647, 1)
 offset_left = 37.0
 offset_top = 260.0
-offset_right = 297.0
-offset_bottom = 486.0
+offset_right = 223.0
+offset_bottom = 497.0
 scale = Vector2(0.5, 0.5)
 tooltip_text = "Text"
-texture_normal = ExtResource("4_iwuhw")
+texture_normal = ExtResource("5_domtc")
 script = ExtResource("2_bn6le")
 metadata/newspaper_index = 1
 
@@ -54,24 +48,29 @@ offset_right = 507.0
 offset_bottom = 372.0
 scale = Vector2(0.5, 0.5)
 tooltip_text = "Text"
-texture_normal = ExtResource("5_eq6u3")
+texture_normal = ExtResource("6_t4bxe")
 script = ExtResource("2_bn6le")
 metadata/newspaper_index = 0
 
 [node name="RequestLabel" type="Label" parent="."]
-modulate = Color(0.117647, 0.545098, 0.917647, 1)
-offset_left = 569.0
-offset_top = 108.0
-offset_right = 791.0
-offset_bottom = 131.0
-scale = Vector2(1.755, 1.755)
+modulate = Color(0.968627, 0, 0, 1)
+offset_left = 640.0
+offset_top = 103.0
+offset_right = 862.0
+offset_bottom = 126.0
+scale = Vector2(1.43, 1.43)
 text = "Please provide newspaper: A"
 
 [node name="StatusLabel" type="Label" parent="."]
-modulate = Color(0, 1, 0, 1)
-offset_left = 715.0
-offset_top = 26.0
-offset_right = 773.0
-offset_bottom = 49.0
+modulate = Color(0.917647, 1, 0, 1)
+offset_left = 739.0
+offset_top = 55.0
+offset_right = 804.0
+offset_bottom = 78.0
 scale = Vector2(1.755, 1.755)
 text = "Success!"
+
+[node name="Prompt" type="Sprite2D" parent="."]
+position = Vector2(537, 374)
+scale = Vector2(3.025, 3.025)
+texture = ExtResource("7_6d27k")

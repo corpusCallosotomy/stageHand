@@ -5,6 +5,7 @@ public partial class Newspaper : Godot.TextureButton
 {
 
     bool newspaperHeld = false;
+    int newsPaperIndex = -1;
     public override void _Ready()
     {
         base._Ready();
@@ -40,6 +41,16 @@ public partial class Newspaper : Godot.TextureButton
 
     public void newspaperReleased() {
         newspaperHeld = false;
+    }
+
+    public void setIndex(int index)
+    {
+        this.newsPaperIndex = index;
+    }
+
+    public int getIndex()
+    {
+        return this.newsPaperIndex;
     }
 
 }

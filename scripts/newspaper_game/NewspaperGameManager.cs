@@ -6,6 +6,7 @@ public partial class NewspaperGameManager : Node2D
     public enum GameState
     {
         Initializing,
+        Prompt,
         Playing,
         Passed
     }
@@ -25,6 +26,8 @@ public partial class NewspaperGameManager : Node2D
 
     Label statusLabel = null;
     Label requestLabel = null;
+
+    Sprite2D fetchPrompt = null;
 
     String[] newspaper_letters = {"L","P","A"};
 
@@ -49,6 +52,10 @@ public partial class NewspaperGameManager : Node2D
             else if (child.Name == "RequestLabel")
             {
                 requestLabel = (Label) child;
+            }
+            else if (child.Name == "Prompt")
+            {
+                fetchPrompt = (Sprite2D) child;
             }
 
         }
@@ -77,17 +84,21 @@ public partial class NewspaperGameManager : Node2D
             foreach(Newspaper newspaper in newspapers)
             {
                 
-                float random_x = (float) rnd.Next(50, 400);
+                float random_x = (float) rnd.Next(0, 500);
                 float random_y = (float) rnd.Next(0, 700);
                 newspaper.GlobalPosition = new Vector2(random_x, random_y);
 
-                if (newspaper.GetMeta("newspaper_index").AsInt32() != target_newspaper) 
+                int currentPaperIndex = newspaper.GetMeta("newspaper_index").AsInt32();
+                newspaper.setIndex(currentPaperIndex);
+                if (currentPaperIndex != target_newspaper) 
                 {
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < 10; i++)
                     {
-                        random_x = (float)rnd.Next(50, 400);
+                        random_x = (float)rnd.Next(0, 500);
                         random_y = (float)rnd.Next(0, 700);
-                        Newspaper newNewspaper = (Newspaper)newspaper.Duplicate();
+                        Newspaper newNewspaper = (Newspaper) newspaper.Duplicate();
+                        newNewspaper.SetMeta("newspaper_index", currentPaperIndex);
+                        newNewspaper.setIndex(currentPaperIndex);
                         newNewspaper.GlobalPosition = new Vector2(random_x, random_y);
                         this.AddChild(newNewspaper);
                         added_newspapers.Add(newNewspaper);
@@ -96,7 +107,20 @@ public partial class NewspaperGameManager : Node2D
             }
 
 
-            state = GameState.Playing;
+            this.RemoveChild(fetchPrompt);
+            this.AddChild(fetchPrompt);
+            state = GameState.Prompt;
+            fetchPrompt.Visible = true;
+            waitingForTime = true;
+            waitForTime();
+        }
+        else if (state == GameState.Prompt)
+        {
+            if (!waitingForTime)
+            {
+                state = GameState.Playing;
+                fetchPrompt.Visible = false;
+            }
         }
         else if (state == GameState.Playing){
             num_newspapers_in_zone = 0;
@@ -104,18 +128,33 @@ public partial class NewspaperGameManager : Node2D
             GD.Print("Looking for newspaper: " +target_newspaper);
             foreach (Newspaper newspaper in newspapers)
             {
-                if (newspaper.GlobalPosition.X > 500)
+                if (newspaper.GlobalPosition.X > 640)
                 {
                     num_newspapers_in_zone++;
 
-                    if (newspaper.GetMeta("newspaper_index").AsInt32() == target_newspaper)
+                    if (newspaper.getIndex() == target_newspaper)
                     {
                         correct_newspaper_in_zone = true;
                     }
 
-                    GD.Print("Newspaper " + newspaper.GetMeta("newspaper_index").AsInt32() + " in zone");
+                    // GD.Print("Newspaper " + newspaper.getIndex() + " in zone");
                 }
                 
+            }
+            foreach (Newspaper newspaper in added_newspapers)
+            {
+                if (newspaper.GlobalPosition.X > 640)
+                {
+                    num_newspapers_in_zone++;
+
+                    if (newspaper.getIndex() == target_newspaper)
+                    {
+                        correct_newspaper_in_zone = true;
+                    }
+
+                    // GD.Print("Newspaper " + newspaper.getIndex() + " in zone");
+                }
+
             }
 
             GD.Print("Num Papers in Zone: " + num_newspapers_in_zone);
