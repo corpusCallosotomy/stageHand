@@ -3,6 +3,7 @@ using System;
 
 public partial class TomatoGameManager : Node2D
 {
+	private TreeSceneManager treeSceneManager;
 	private TomatoGenerator tomatoGenerator;
 	private RichTextLabel objective;
 	private RichTextLabel score;
@@ -11,6 +12,7 @@ public partial class TomatoGameManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GetTreeSceneManager();
 		tomatoGenerator = (TomatoGenerator) FindChild("TomatoGenerator");
 		objective = (RichTextLabel) FindChild("Objective");
 		score = (RichTextLabel) FindChild("Score");
@@ -30,6 +32,7 @@ public partial class TomatoGameManager : Node2D
 			objective.Text = "Congrats! You've complated the Objective!";
 			player.StopMovement();
 			tomatoGenerator.Stop();
+			endScene(1.5f);
 		}
 	}
 
@@ -53,5 +56,23 @@ public partial class TomatoGameManager : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+	private async void endScene(float seconds) 
+	{
+		if(treeSceneManager != null)
+			treeSceneManager.BackToMainScene();
+		QueueFree();
+	}
+
+	private void GetTreeSceneManager()
+	{
+		Node temp = GetParent();
+		if(temp != null)
+			temp = temp.GetParent();
+		if(temp != null)
+			temp = temp.GetParent();
+		if(temp != null)
+			treeSceneManager = (TreeSceneManager) temp;
 	}
 }

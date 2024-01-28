@@ -65,13 +65,13 @@ position = Vector2(72, 515)
 position = Vector2(956, 519)
 MicroGameParent = NodePath("../Newspaper2/Node2D")
 
-[node name="Microphone2" parent="." instance=ExtResource("7_8j6qq")]
+[node name="Microphone" parent="." instance=ExtResource("7_8j6qq")]
 position = Vector2(234, 264)
 
-[node name="Microphone3" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("7_8j6qq")]
+[node name="Microphone2" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("7_8j6qq")]
 position = Vector2(788, 264)
 scale = Vector2(-1, 1)
-MicroGameParent = NodePath("../Microphone2/Node2D")
+MicroGameParent = NodePath("../Microphone/Node2D")
 
 [node name="Tomato" parent="." instance=ExtResource("8_seu2t")]
 position = Vector2(513, 692)

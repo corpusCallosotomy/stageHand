@@ -2,17 +2,13 @@ using Godot;
 using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
 
 public partial class player : CharacterBody2D
 {
 	public float speed = 300;
-	private microGameName;
-	private Dictionary<string, string> pathToMicrogame = new Dictionary<string, string>();
-
-	public override void _Ready()
-	{
-		SetMicroGamePaths();
-	}
+	private string microGameNamePlayerIsInteractingWith;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -24,37 +20,31 @@ public partial class player : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("interact") && pathToMicrogame != null)
-		{
+		if (Input.IsActionJustPressed("interact"))
 			Interact();
-		}
-
-
 	}
 
 	void Interact()
 	{
-
+		if(microGameNamePlayerIsInteractingWith == null)
+			return;
+		TreeSceneManager tree = (TreeSceneManager) (GetParent().GetParent());
+		tree.StartMicrogame(microGameNamePlayerIsInteractingWith);
 	}
 
 
 
 	private void _on_area_2d_area_entered(Area2D area)
 	{
-		string name = area.Name;
+		microGameNamePlayerIsInteractingWith = area.Name;
+		
 	}
 
 
 
 	private void _on_area_2d_area_exited(Area2D area)
 	{
-		pathToMicrogame = null;
+		microGameNamePlayerIsInteractingWith = null;
 	}
 
-	private void SetMicroGamePaths()
-	{
-		pathToMicrogame.Add("Microphone", "");
-		pathToMicrogame.Add("Tomato", "");
-		pathToMicrogame.Add("Newspaper", "");
-	}
 }
