@@ -3,6 +3,7 @@ using System;
 
 public partial class MicrophoneGameManager : Node2D
 {
+	private TreeSceneManager treeSceneManager;
 
 	public enum GameState
 	{
@@ -33,6 +34,7 @@ public partial class MicrophoneGameManager : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
+		GetTreeSceneManager();
 		Godot.Collections.Array<Node> children = this.GetChildren();
 
 		GD.Print("Game State: " + state);
@@ -198,5 +200,23 @@ public partial class MicrophoneGameManager : Node2D
 	{
 		await ToSignal(GetTree().CreateTimer(1.5), "timeout");
 		waitingForTime = false;
+		endScene();
+	}
+	private void endScene() 
+	{
+		if(treeSceneManager != null)
+			treeSceneManager.BackToMainScene();
+		QueueFree();
+	}
+
+	private void GetTreeSceneManager()
+	{
+		Node temp = GetParent();
+		if(temp != null)
+			temp = temp.GetParent();
+		if(temp != null)
+			temp = temp.GetParent();
+		if(temp != null)
+			treeSceneManager = (TreeSceneManager) temp;
 	}
 }
