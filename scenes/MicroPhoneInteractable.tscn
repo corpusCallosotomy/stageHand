@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c872t4veb8gxi"]
+
+[ext_resource type="Script" path="res://scripts/TestInteraction.cs" id="1_8cpq7"]
+[ext_resource type="Texture2D" uid="uid://c74ype3vu4c6d" path="res://sprites/microgame/gafferInactive.png" id="2_qfkru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qslcu"]
+radius = 134.41
+
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("MicroGameParent") groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_8cpq7")
+MicroGameParent = NodePath("Node2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qslcu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qfkru")
+
+[node name="Node2D" type="Node2D" parent="."]
