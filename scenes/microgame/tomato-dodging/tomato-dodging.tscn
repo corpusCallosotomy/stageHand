@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://7q1jf3g6u1es"]
+[gd_scene load_steps=9 format=3 uid="uid://7q1jf3g6u1es"]
 
 [ext_resource type="Texture2D" uid="uid://dqovhf6rhg3e8" path="res://sprites/microgame/tomato-dodging/tomatoBackground.png" id="2_lwffg"]
 [ext_resource type="PackedScene" uid="uid://bewlo536p23cy" path="res://scenes/microgame/tomato-dodging/temp_player.tscn" id="2_va5hl"]
+[ext_resource type="Texture2D" uid="uid://dqovhf6rhg3e8" path="res://sprites/microgame/tomato-dodging/tomatoBackground.png" id="3_q8gwj"]
 [ext_resource type="Script" path="res://scripts/TomatoGenerator.cs" id="3_w5t38"]
 [ext_resource type="Script" path="res://scripts/TomatoGameManager.cs" id="5_amx8d"]
 [ext_resource type="PackedScene" uid="uid://8uay5lh1abbw" path="res://sprites/microgame/tomato-dodging/hit_box.tscn" id="5_gbard"]
@@ -20,6 +21,11 @@ script = ExtResource("5_amx8d")
 position = Vector2(302.5, 173.5)
 scale = Vector2(1.60419, 1.33071)
 texture = ExtResource("2_lwffg")
+
+[node name="TomatoBackground" type="Sprite2D" parent="."]
+position = Vector2(323.5, 207)
+scale = Vector2(1.57953, 1.41102)
+texture = ExtResource("3_q8gwj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(320, 321)
