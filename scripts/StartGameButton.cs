@@ -25,8 +25,9 @@ public partial class StartGameButton : TextureButton
 
 
         audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Main Menu Loop.wav");
+        audioPlayer.Autoplay = true;
         audioPlayer.Play();
-
+        
         this.ButtonDown += startClicked;
     }
 
