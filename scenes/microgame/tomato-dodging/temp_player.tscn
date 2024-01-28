@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bewlo536p23cy"]
 
-[ext_resource type="Texture2D" uid="uid://tik100vcc015" path="res://scenes/microgame/tomato-dodging/temp_player_sprite.png" id="1_hri45"]
 [ext_resource type="Script" path="res://scenes/microgame/tomato-dodging/temp_player.cs" id="1_yy3am"]
+[ext_resource type="Texture2D" uid="uid://cbsuk4alo3qj7" path="res://sprites/microgame/tomato-dodging/tomatoPlayer.png" id="2_v8ua7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmu3d"]
 radius = 24.0
@@ -15,9 +15,8 @@ scale = Vector2(1.39, 1.39)
 shape = SubResource("CapsuleShape2D_wmu3d")
 
 [node name="TempPlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -1.19209e-07)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_hri45")
+scale = Vector2(0.598214, 0.423841)
+texture = ExtResource("2_v8ua7")
 
 [node name="Area2D" type="Area2D" parent="."]
 
