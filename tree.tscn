@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5bpypoyss016"]
+
+[ext_resource type="PackedScene" uid="uid://bnx3entmvw7fr" path="res://scenes/set.tscn" id="1_0i1cb"]
+[ext_resource type="Script" path="res://scripts/TreeSceneManager.cs" id="1_lmo0p"]
+
+[node name="Tree" type="Node"]
+script = ExtResource("1_lmo0p")
+
+[node name="MainSet" parent="." instance=ExtResource("1_0i1cb")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 1025.0
+offset_bottom = 703.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1024, 768)
+render_target_update_mode = 0
