@@ -41,28 +41,31 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_2qkg4"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("13_rcqjo")
 }, {
 "duration": 1.0,
 "texture": ExtResource("14_7aiw3")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("15_cem81")
 }, {
 "duration": 1.0,
 "texture": ExtResource("14_7aiw3")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("16_lgrms")
 }, {
 "duration": 1.0,
 "texture": ExtResource("14_7aiw3")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("12_5uaym")
 }, {
 "duration": 1.0,
+"texture": ExtResource("14_7aiw3")
+}, {
+"duration": 2.0,
 "texture": ExtResource("17_moy1o")
 }, {
 "duration": 1.0,
@@ -70,7 +73,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 0.25
+"speed": 1.0
 }]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("Microgames")]
@@ -129,7 +132,8 @@ texture = ExtResource("11_g5o45")
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(616, 216)
 sprite_frames = SubResource("SpriteFrames_2qkg4")
-frame_progress = 0.52327
+autoplay = "default"
+frame_progress = 0.947746
 
 [node name="Newspaper2" parent="." instance=ExtResource("6_ffltd")]
 position = Vector2(72, 515)
