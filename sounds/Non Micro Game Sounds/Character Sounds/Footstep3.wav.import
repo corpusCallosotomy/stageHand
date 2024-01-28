@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctqj3pe3n6xey"
+path="res://.godot/imported/Footstep3.wav-df5b5e03561867f9b99f3e0615375bd8.sample"
+
+[deps]
+
+source_file="res://sounds/Non Micro Game Sounds/Character Sounds/Footstep3.wav"
+dest_files=["res://.godot/imported/Footstep3.wav-df5b5e03561867f9b99f3e0615375bd8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

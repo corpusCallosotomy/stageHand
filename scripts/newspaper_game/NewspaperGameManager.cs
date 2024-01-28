@@ -4,10 +4,10 @@ using System;
 public partial class NewspaperGameManager : Node2D
 {
 	private TreeSceneManager treeSceneManager;
-
 	public enum GameState
 	{
 		Initializing,
+		Prompt,
 		Playing,
 		Passed
 	}
@@ -23,11 +23,20 @@ public partial class NewspaperGameManager : Node2D
 
 	//TextureButton btnTemplate = null;
 	Godot.Collections.Array<Newspaper> newspapers = new Godot.Collections.Array<Newspaper>{ };
+	Godot.Collections.Array<Newspaper> added_newspapers = new Godot.Collections.Array<Newspaper> { };
 
 	Label statusLabel = null;
 	Label requestLabel = null;
 
-	String[] newspaper_letters = {"L","P","A","Q","N","R","G","S"};
+	Sprite2D fetchPrompt = null;
+
+	Sprite2D smallFetchPrompt = null;
+
+	Sprite2D letterID = null;
+
+	String[] newspaper_letters = {"L","P","A"};
+
+	AudioStreamPlayer audioPlayer = null;
 
 
 	public override void _Ready()
@@ -52,6 +61,22 @@ public partial class NewspaperGameManager : Node2D
 			{
 				requestLabel = (Label) child;
 			}
+			else if (child.Name == "Prompt")
+			{
+				fetchPrompt = (Sprite2D) child;
+			}
+			else if (child.Name == "SmallPrompt")
+			{
+				smallFetchPrompt = (Sprite2D) child;
+			}
+			else if (child.Name == "Letter")
+			{
+				letterID = (Sprite2D) child;
+			}
+			else if (child.Name == "AudioPlayer")
+			{
+				audioPlayer = (AudioStreamPlayer)child;
+			}
 
 		}
 
@@ -64,22 +89,77 @@ public partial class NewspaperGameManager : Node2D
 
 		if (state == GameState.Initializing)
 		{
+			foreach (Newspaper addedNewspaper in added_newspapers)
+			{
+				this.RemoveChild(addedNewspaper);
+			}
+			added_newspapers = new Godot.Collections.Array<Newspaper> { };
+
 			statusLabel.Text = "";
 			target_newspaper = rnd.Next(newspapers.Count);
 			requestLabel.Text = "Please provide newspaper: " + newspaper_letters[target_newspaper];
 			GD.Print("Target Newspaper: " + target_newspaper);
-			foreach(Newspaper newspaper in newspapers)
+
+			if (target_newspaper == 0)
 			{
-				
-				float random_x = (float) rnd.Next(50, 450);
-				float random_y = (float) rnd.Next(50, 750);
-				newspaper.GlobalPosition = new Vector2(random_x, random_y);
+				letterID.Texture = GD.Load<Texture2D>("res://sprites/microgame/newspaper_game/lPaper.png");
+			}
+			else if (target_newspaper == 1)
+			{
+				letterID.Texture = GD.Load<Texture2D>("res://sprites/microgame/newspaper_game/pPaper.png");
+			}
+			else if (target_newspaper == 2)
+			{
+				letterID.Texture = GD.Load<Texture2D>("res://sprites/microgame/newspaper_game/aPaper.png");
 			}
 
-			
+
+			foreach (Newspaper newspaper in newspapers)
+			{
+				
+				float random_x = (float) rnd.Next(0, 500);
+				float random_y = (float) rnd.Next(0, 700);
+				newspaper.GlobalPosition = new Vector2(random_x, random_y);
+
+				int currentPaperIndex = newspaper.GetMeta("newspaper_index").AsInt32();
+				newspaper.setIndex(currentPaperIndex);
+				if (currentPaperIndex != target_newspaper) 
+				{
+					for (int i = 0; i < 10; i++)
+					{
+						random_x = (float)rnd.Next(0, 500);
+						random_y = (float)rnd.Next(0, 700);
+						Newspaper newNewspaper = (Newspaper) newspaper.Duplicate();
+						newNewspaper.SetMeta("newspaper_index", currentPaperIndex);
+						newNewspaper.setIndex(currentPaperIndex);
+						newNewspaper.GlobalPosition = new Vector2(random_x, random_y);
+						this.AddChild(newNewspaper);
+						added_newspapers.Add(newNewspaper);
+					}
+				}
+			}
 
 
-			state = GameState.Playing;
+			this.RemoveChild(fetchPrompt);
+			this.AddChild(fetchPrompt);
+			this.RemoveChild(smallFetchPrompt);
+			this.AddChild(smallFetchPrompt);
+			state = GameState.Prompt;
+			fetchPrompt.Visible = true;
+			smallFetchPrompt.Visible = false;
+			waitingForTime = true;
+			waitForTime();
+			audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/StartGame_Chime.wav");
+			audioPlayer.Play();
+		}
+		else if (state == GameState.Prompt)
+		{
+			if (!waitingForTime)
+			{
+				state = GameState.Playing;
+				fetchPrompt.Visible = false;
+				smallFetchPrompt.Visible = true;
+			}
 		}
 		else if (state == GameState.Playing){
 			num_newspapers_in_zone = 0;
@@ -87,18 +167,44 @@ public partial class NewspaperGameManager : Node2D
 			GD.Print("Looking for newspaper: " +target_newspaper);
 			foreach (Newspaper newspaper in newspapers)
 			{
-				if (newspaper.GlobalPosition.X > 500)
+				if (newspaper.GlobalPosition.X > 640)
 				{
 					num_newspapers_in_zone++;
 
-					if (newspaper.GetMeta("newspaper_index").AsInt32() == target_newspaper)
+					if (newspaper.getIndex() == target_newspaper)
 					{
 						correct_newspaper_in_zone = true;
 					}
 
-					GD.Print("Newspaper " + newspaper.GetMeta("newspaper_index").AsInt32() + " in zone");
+					// GD.Print("Newspaper " + newspaper.getIndex() + " in zone");
 				}
-				
+
+				if (newspaper.getNewspaperHeld() && !audioPlayer.Playing)
+				{
+					audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/Newspaper Game/PaperShuffle" + rnd.Next(1, 4) + ".wav");
+					audioPlayer.Play();
+				}
+
+			}
+			foreach (Newspaper newspaper in added_newspapers)
+			{
+				if (newspaper.GlobalPosition.X > 640)
+				{
+					num_newspapers_in_zone++;
+
+					if (newspaper.getIndex() == target_newspaper)
+					{
+						correct_newspaper_in_zone = true;
+					}
+
+					// GD.Print("Newspaper " + newspaper.getIndex() + " in zone");
+				}
+				if (newspaper.getNewspaperHeld() && !audioPlayer.Playing)
+				{
+					audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/Newspaper Game/PaperShuffle" + rnd.Next(1, 4) + ".wav");
+					audioPlayer.Play();
+				}
+
 			}
 
 			GD.Print("Num Papers in Zone: " + num_newspapers_in_zone);
@@ -108,6 +214,7 @@ public partial class NewspaperGameManager : Node2D
 				state = GameState.Passed;
 				waitingForTime = true;
 				waitForTime();
+				endScene();
 			}
 		}
 		else if (state == GameState.Passed)
@@ -126,7 +233,6 @@ public partial class NewspaperGameManager : Node2D
 	{
 		await ToSignal(GetTree().CreateTimer(1.5), "timeout");
 		waitingForTime = false;
-		endScene();
 	}
 
 	private void endScene() 

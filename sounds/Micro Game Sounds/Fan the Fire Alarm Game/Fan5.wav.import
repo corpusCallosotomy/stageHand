@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5ixu336t84u8"
+path="res://.godot/imported/Fan5.wav-cae2cecd5a9f529d99f11efe7ce45a5e.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/Fan the Fire Alarm Game/Fan5.wav"
+dest_files=["res://.godot/imported/Fan5.wav-cae2cecd5a9f529d99f11efe7ce45a5e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

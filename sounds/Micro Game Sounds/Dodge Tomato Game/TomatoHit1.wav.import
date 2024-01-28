@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://s7f5savtnx23"
+path="res://.godot/imported/TomatoHit1.wav-cb8f3b93a45a9e4ec8e4f640bf3005ce.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/Dodge Tomato Game/TomatoHit1.wav"
+dest_files=["res://.godot/imported/TomatoHit1.wav-cb8f3b93a45a9e4ec8e4f640bf3005ce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
