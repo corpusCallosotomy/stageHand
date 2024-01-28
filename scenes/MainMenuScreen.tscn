@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://co4yu1q4gjqoh"]
+
+[ext_resource type="Script" path="res://scripts/MainMenuScreen.cs" id="1_okl6c"]
+[ext_resource type="Texture2D" uid="uid://y6p6xg3b2how" path="res://sprites/static/titleScreenBackground.png" id="2_flu5c"]
+[ext_resource type="Texture2D" uid="uid://bc4lf4dd45l4b" path="res://sprites/static/titleScreenPlayButton.png" id="3_dajt0"]
+[ext_resource type="Script" path="res://scripts/StartGameButton.cs" id="4_8sp8t"]
+
+[node name="GameRoot" type="Node2D"]
+script = ExtResource("1_okl6c")
+
+[node name="MainMenu" type="Node2D" parent="."]
+
+[node name="TitleScreenBackground" type="Sprite2D" parent="MainMenu"]
+position = Vector2(511, 383)
+texture = ExtResource("2_flu5c")
+
+[node name="TextureButton" type="TextureButton" parent="MainMenu"]
+offset_left = 321.0
+offset_top = 561.0
+offset_right = 698.0
+offset_bottom = 674.0
+texture_normal = ExtResource("3_dajt0")
+script = ExtResource("4_8sp8t")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="MainMenu/TextureButton"]
