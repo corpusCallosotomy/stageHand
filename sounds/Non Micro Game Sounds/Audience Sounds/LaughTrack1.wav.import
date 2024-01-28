@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvcpqf88pv6qa"
+path="res://.godot/imported/LaughTrack1.wav-f422c3e1fb065f416846d71b2dfb4c9d.sample"
+
+[deps]
+
+source_file="res://sounds/Non Micro Game Sounds/Audience Sounds/LaughTrack1.wav"
+dest_files=["res://.godot/imported/LaughTrack1.wav-f422c3e1fb065f416846d71b2dfb4c9d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck7cye862itg0"
+path="res://.godot/imported/TVChange3.wav-f07aa498c0e62d3ae0977d317ee25bc3.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/0. Start Stop Game TV Sounds/TVChange3.wav"
+dest_files=["res://.godot/imported/TVChange3.wav-f07aa498c0e62d3ae0977d317ee25bc3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cj1gbsfv3m618"
+path="res://.godot/imported/SpotlightMove3.wav-58c75d0fac578109a29e1f5291fc7c51.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/Spotlight Game/SpotlightMove3.wav"
+dest_files=["res://.godot/imported/SpotlightMove3.wav-58c75d0fac578109a29e1f5291fc7c51.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bskjqecs4bb48"
+path="res://.godot/imported/CoffeePour.wav-29574deadd1fd8d31f7ea4407b8051af.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/Coffee Game/CoffeePour.wav"
+dest_files=["res://.godot/imported/CoffeePour.wav-29574deadd1fd8d31f7ea4407b8051af.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
