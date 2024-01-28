@@ -56,7 +56,6 @@ shape = SubResource("RectangleShape2D_0qet1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fhycc")
-autoplay = true
 
 [node name="Newspaper2" parent="." instance=ExtResource("6_ffltd")]
 position = Vector2(72, 515)
