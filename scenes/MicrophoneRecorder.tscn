@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://degccftnqr3tp"]
+
+[ext_resource type="Script" path="res://scenes/MicrophoneRecorder.cs" id="1_3813l"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_oksop"]
+
+[node name="MicrophoneRecorder" type="Node2D"]
+script = ExtResource("1_3813l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamRecorder" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_oksop")
+autoplay = true
+bus = &"Record"
