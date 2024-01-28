@@ -7,6 +7,7 @@ public partial class MicrophoneGameManager : Node2D
 	public enum GameState
 	{
 		Initializing,
+		Prompt,
 		Playing,
 		Checking,
 		Failed,
@@ -19,6 +20,9 @@ public partial class MicrophoneGameManager : Node2D
 	Microphone microphoneNode = null;
 	Node2D microphoneOutlineNode = null;
 	Label statusLabel = null;
+
+	Sprite2D prompt = null;
+	Sprite2D smallPrompt = null;
 
 	bool waitingForTime = false;
 
@@ -47,7 +51,15 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				statusLabel = (Label) child;
 			}
-		}
+			else if (child.Name == "Prompt")
+			{
+                prompt = (Sprite2D) child;
+			}
+            else if (child.Name == "SmallPrompt")
+            {
+                smallPrompt = (Sprite2D) child;
+            }
+        }
 		GD.Print("Done Collecting Children");
 
 	}
@@ -65,16 +77,33 @@ public partial class MicrophoneGameManager : Node2D
 
 		if (state == GameState.Initializing)
 		{
-			statusLabel.Visible = false;
+			//statusLabel.Visible = false;
 
 			//microphoneNode.setRandomRotation();
 			Random rnd = new Random();
-			float num = (float)rnd.Next(20, 50);
+			float num = (float)rnd.Next(10, 34);
 			microphoneOutlineNode.RotationDegrees = num;
 
-			state = GameState.Playing;
-			microphoneNode.setMovable(true);
+			state = GameState.Prompt;
+			microphoneNode.setMovable(false);
 			GD.Print("Moving to state: " + state);
+
+			prompt.Visible = true;
+			smallPrompt.Visible = false;
+			waitingForTime = true;
+			waitForTime();
+
+			microphoneNode.setMovable(false);
+		}
+		else if (state == GameState.Prompt)
+		{
+			if (!waitingForTime)
+			{
+                prompt.Visible = false;
+                smallPrompt.Visible = true;
+                state = GameState.Playing;
+                microphoneNode.setMovable(true);
+            }
 		}
 		else if (state == GameState.Playing)
 		{
@@ -111,9 +140,9 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				GD.Print("Passed!");
 				state = GameState.Passed;
-				statusLabel.Text = "Passed!";
-				statusLabel.SelfModulate = new Color(0, 1, 0);
-				statusLabel.Visible = true;
+				///statusLabel.Text = "Passed!";
+				//statusLabel.SelfModulate = new Color(0, 1, 0);
+				//statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}
@@ -121,9 +150,9 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				GD.Print("Failed!");
 				state = GameState.Failed;
-				statusLabel.Text = "Failed!";
-				statusLabel.SelfModulate = new Color(1, 0, 0);
-				statusLabel.Visible = true;
+				//statusLabel.Text = "Failed!";
+				//statusLabel.SelfModulate = new Color(1, 0, 0);
+				//statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}

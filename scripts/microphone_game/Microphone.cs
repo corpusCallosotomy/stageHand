@@ -41,7 +41,7 @@ public partial class Microphone : Node2D
 			//this.Position = new Vector2(
 			//	(float) (Math.Sin(d*speed)*radius),
 			//	(float) (Math.Cos(d*speed*radius)));
-			this.Rotate((float)(delta * 1));
+			this.Rotate((float)(delta * 1.5));
 
 			if (this.RotationDegrees > 70)
 			{
