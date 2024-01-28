@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bioykyx3idehp"]
+[gd_scene load_steps=6 format=3 uid="uid://cnjer7w0sg6ow"]
 
 [ext_resource type="Script" path="res://Sign.cs" id="1_7sd4f"]
-[ext_resource type="Texture2D" uid="uid://vieq1hejlbu" path="res://sprites/anim/host/laughSignInactive.png" id="2_o680i"]
-[ext_resource type="Texture2D" uid="uid://bngxrkq70r6aj" path="res://sprites/anim/host/laughSignActive.png" id="3_hmaa1"]
+[ext_resource type="Texture2D" uid="uid://byk2705w02nq3" path="res://sprites/anim/host/laughSignInactive.png" id="2_o680i"]
+[ext_resource type="Texture2D" uid="uid://do11hp0omgtm3" path="res://sprites/anim/host/laughSignActive.png" id="3_hmaa1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4k8v"]
 animations = [{
