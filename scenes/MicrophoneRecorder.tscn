@@ -12,12 +12,4 @@ script = ExtResource("1_3813l")
 [node name="AudioStreamRecorder" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_oksop")
 autoplay = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Button" type="Button" parent="."]
-offset_left = 335.0
-offset_top = 253.0
-offset_right = 398.0
-offset_bottom = 284.0
-text = "Record"
+bus = &"Record"
