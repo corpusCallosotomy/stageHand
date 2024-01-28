@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwib5wle3b0dx"]
+
+[ext_resource type="Texture2D" uid="uid://bpwvfva6ojxmn" path="res://sprites/static/Coffeepot.png" id="1_5qklu"]
+[ext_resource type="Script" path="res://scenes/CoffeeMicroGame.cs" id="1_rq0ww"]
+[ext_resource type="Texture2D" uid="uid://dr5q5d5y7dahf" path="res://sprites/static/CoffeeCup.png" id="3_ma31m"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rq0ww")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(533, 465)
+scale = Vector2(0.677449, 0.679167)
+texture = ExtResource("1_5qklu")
+
+[node name="CoffeeCup" type="Sprite2D" parent="."]
+position = Vector2(461, 643)
+scale = Vector2(0.502646, 0.475807)
+texture = ExtResource("3_ma31m")
