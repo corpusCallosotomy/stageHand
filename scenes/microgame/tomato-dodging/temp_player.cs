@@ -3,6 +3,7 @@ using System;
 
 public partial class temp_player : CharacterBody2D
 {
+	
 	public const float Speed = 300.0f;
 	private bool canMove = true;
 

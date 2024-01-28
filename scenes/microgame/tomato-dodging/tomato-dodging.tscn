@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://7q1jf3g6u1es"]
 
-[ext_resource type="Texture2D" uid="uid://cj0si5gjbq2sv" path="res://scenes/microgame/tomato-dodging/temp_theater-stage-red-curtain.jpg" id="1_s5bbo"]
+[ext_resource type="Texture2D" uid="uid://bxu35bapk7emy" path="res://sprites/microgame/tomato-dodging/tomatoBackground.png" id="2_lwffg"]
 [ext_resource type="PackedScene" uid="uid://bewlo536p23cy" path="res://scenes/microgame/tomato-dodging/temp_player.tscn" id="2_va5hl"]
 [ext_resource type="Texture2D" uid="uid://dqovhf6rhg3e8" path="res://sprites/microgame/tomato-dodging/tomatoBackground.png" id="3_q8gwj"]
 [ext_resource type="Script" path="res://scripts/TomatoGenerator.cs" id="3_w5t38"]
@@ -19,8 +19,8 @@ script = ExtResource("5_amx8d")
 
 [node name="Theater-stage-red-curtain" type="Sprite2D" parent="."]
 position = Vector2(302.5, 173.5)
-scale = Vector2(1.233, 1.305)
-texture = ExtResource("1_s5bbo")
+scale = Vector2(1.60419, 1.33071)
+texture = ExtResource("2_lwffg")
 
 [node name="TomatoBackground" type="Sprite2D" parent="."]
 position = Vector2(323.5, 207)

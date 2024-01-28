@@ -15,6 +15,7 @@ scale = Vector2(1.39, 1.39)
 shape = SubResource("CapsuleShape2D_wmu3d")
 
 [node name="TempPlayerSprite" type="Sprite2D" parent="."]
+
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_41b3c")
 
