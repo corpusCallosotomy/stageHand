@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://fa0quswk7tdo"
+path="res://.godot/imported/UISelect.wav-40b2281a2df04ab75a27db68837f8231.sample"
+
+[deps]
+
+source_file="res://sounds/Non Micro Game Sounds/UI Sounds/UISelect.wav"
+dest_files=["res://.godot/imported/UISelect.wav-40b2281a2df04ab75a27db68837f8231.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

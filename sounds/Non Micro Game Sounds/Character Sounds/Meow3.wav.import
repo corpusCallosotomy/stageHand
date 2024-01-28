@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dojcvt54yf1xw"
+path="res://.godot/imported/Meow3.wav-2aac1541be0cc8e91b9687f0c9596f1c.sample"
+
+[deps]
+
+source_file="res://sounds/Non Micro Game Sounds/Character Sounds/Meow3.wav"
+dest_files=["res://.godot/imported/Meow3.wav-2aac1541be0cc8e91b9687f0c9596f1c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

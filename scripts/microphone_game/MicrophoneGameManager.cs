@@ -26,8 +26,12 @@ public partial class MicrophoneGameManager : Node2D
 
 	bool waitingForTime = false;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	AudioStreamPlayer audioPlayer = null;
+
+    Random rnd = new Random();
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 		Godot.Collections.Array<Node> children = this.GetChildren();
 
@@ -59,6 +63,10 @@ public partial class MicrophoneGameManager : Node2D
             {
                 smallPrompt = (Sprite2D) child;
             }
+			else if (child.Name == "AudioPlayer")
+			{
+				audioPlayer = (AudioStreamPlayer) child;
+			}
         }
 		GD.Print("Done Collecting Children");
 
@@ -80,7 +88,7 @@ public partial class MicrophoneGameManager : Node2D
 			//statusLabel.Visible = false;
 
 			//microphoneNode.setRandomRotation();
-			Random rnd = new Random();
+			
 			float num = (float)rnd.Next(10, 34);
 			microphoneOutlineNode.RotationDegrees = num;
 
@@ -123,6 +131,12 @@ public partial class MicrophoneGameManager : Node2D
 			//	state = GameState.Checking;
 			//	GD.Print("Moving to state: " + state);
 			//}
+			if(microphoneNode.getAtInitialPos())
+			{
+
+				audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/Gaffer Game/GafferSwoosh" + rnd.Next(1, 4) +".wav");
+				audioPlayer.Play();
+			}
 			if (Input.IsMouseButtonPressed(MouseButton.Left))
 			{
 				state = GameState.Checking;

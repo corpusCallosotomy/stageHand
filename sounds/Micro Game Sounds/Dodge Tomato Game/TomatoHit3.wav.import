@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cforcv6n78cam"
+path="res://.godot/imported/TomatoHit3.wav-d76f10c9961d02adbd3ec670e2122a04.sample"
+
+[deps]
+
+source_file="res://sounds/Micro Game Sounds/Dodge Tomato Game/TomatoHit3.wav"
+dest_files=["res://.godot/imported/TomatoHit3.wav-d76f10c9961d02adbd3ec670e2122a04.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

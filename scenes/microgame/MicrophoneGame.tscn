@@ -51,3 +51,5 @@ visible = false
 position = Vector2(517, 370)
 scale = Vector2(3.16379, 3.16379)
 texture = ExtResource("6_i5s1l")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

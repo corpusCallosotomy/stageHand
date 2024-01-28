@@ -13,6 +13,8 @@ public partial class Microphone : Node2D
 	double speed = 2;
 
 	float initialRotation = 0;
+
+	bool atInitialPos = false;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -46,7 +48,12 @@ public partial class Microphone : Node2D
 			if (this.RotationDegrees > 70)
 			{
 				this.RotationDegrees = this.initialRotation;
-			}
+				atInitialPos = true;
+            }
+			else
+			{
+                atInitialPos = false;
+            }
 
 			/*
 			if (Input.IsKeyPressed(Key.W))
@@ -97,5 +104,10 @@ public partial class Microphone : Node2D
 		this.RotationDegrees = num;
 		//this.Rotate( num * 0.0174533f);
 
+	}
+
+	public bool getAtInitialPos()
+	{
+		return atInitialPos;
 	}
 }
