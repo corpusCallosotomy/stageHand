@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public partial class player : CharacterBody2D
 {
 	public float speed = 300;
-	private string microGameNamePlayerIsInteractingWith;
+	private Area2D microGameNamePlayerIsInteractingWith;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -29,15 +29,17 @@ public partial class player : CharacterBody2D
 		if(microGameNamePlayerIsInteractingWith == null)
 			return;
 		TreeSceneManager tree = (TreeSceneManager) (GetParent().GetParent());
-		tree.StartMicrogame(microGameNamePlayerIsInteractingWith);
+		tree.StartMicrogame(microGameNamePlayerIsInteractingWith.Name);
+		((MicrogameIcon)microGameNamePlayerIsInteractingWith).Completed();
 	}
 
 
 
 	private void _on_area_2d_area_entered(Area2D area)
 	{
-		microGameNamePlayerIsInteractingWith = area.Name;
-		
+		string state = ((MicrogameIcon) area).GetState();
+		if(state.Equals("Active"))
+			microGameNamePlayerIsInteractingWith = area;
 	}
 
 

@@ -29,10 +29,10 @@ public partial class MicrophoneGameManager : Node2D
 
 	AudioStreamPlayer audioPlayer = null;
 
-    Random rnd = new Random();
+	Random rnd = new Random();
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
 	{
 		GetTreeSceneManager();
 		Godot.Collections.Array<Node> children = this.GetChildren();
@@ -59,17 +59,17 @@ public partial class MicrophoneGameManager : Node2D
 			}
 			else if (child.Name == "Prompt")
 			{
-                prompt = (Sprite2D) child;
+				prompt = (Sprite2D) child;
 			}
-            else if (child.Name == "SmallPrompt")
-            {
-                smallPrompt = (Sprite2D) child;
-            }
+			else if (child.Name == "SmallPrompt")
+			{
+				smallPrompt = (Sprite2D) child;
+			}
 			else if (child.Name == "AudioPlayer")
 			{
 				audioPlayer = (AudioStreamPlayer) child;
 			}
-        }
+		}
 		GD.Print("Done Collecting Children");
 
 	}
@@ -87,7 +87,7 @@ public partial class MicrophoneGameManager : Node2D
 
 		if (state == GameState.Initializing)
 		{
-			//statusLabel.Visible = false;
+			statusLabel.Visible = false;
 
 			//microphoneNode.setRandomRotation();
 			
@@ -102,20 +102,20 @@ public partial class MicrophoneGameManager : Node2D
 			smallPrompt.Visible = false;
 			waitingForTime = true;
 			waitForTime();
-            audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/StartGame_Chime.wav");
-            audioPlayer.Play();
+			audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/StartGame_Chime.wav");
+			audioPlayer.Play();
 
-            microphoneNode.setMovable(false);
+			microphoneNode.setMovable(false);
 		}
 		else if (state == GameState.Prompt)
 		{
 			if (!waitingForTime)
 			{
-                prompt.Visible = false;
-                smallPrompt.Visible = true;
-                state = GameState.Playing;
-                microphoneNode.setMovable(true);
-            }
+				prompt.Visible = false;
+				smallPrompt.Visible = true;
+				state = GameState.Playing;
+				microphoneNode.setMovable(true);
+			}
 		}
 		else if (state == GameState.Playing)
 		{
@@ -160,7 +160,7 @@ public partial class MicrophoneGameManager : Node2D
 				state = GameState.Passed;
 				///statusLabel.Text = "Passed!";
 				//statusLabel.SelfModulate = new Color(0, 1, 0);
-				//statusLabel.Visible = true;
+				statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}
@@ -168,14 +168,14 @@ public partial class MicrophoneGameManager : Node2D
 			{
 				GD.Print("Failed!");
 				state = GameState.Failed;
-				//statusLabel.Text = "Failed!";
+				statusLabel.Text = "Failed!";
 				//statusLabel.SelfModulate = new Color(1, 0, 0);
-				//statusLabel.Visible = true;
+				statusLabel.Visible = true;
 				waitingForTime = true;
 				waitForTime();
 			}
 		}
-		else if (state == GameState.Passed || state == GameState.Failed)
+		else if (state == GameState.Failed)
 		{
 
 			// wait for some number of seconds
@@ -186,6 +186,10 @@ public partial class MicrophoneGameManager : Node2D
 				// waitForTime();
 
 			}
+		}
+		else if (state == GameState.Passed)
+		{
+			endScene();
 		}
 		//else if (state == GameState.Restarting)
 		//{
@@ -200,7 +204,7 @@ public partial class MicrophoneGameManager : Node2D
 	{
 		await ToSignal(GetTree().CreateTimer(1.5), "timeout");
 		waitingForTime = false;
-		endScene();
+		
 	}
 	private void endScene() 
 	{
