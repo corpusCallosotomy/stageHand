@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb8my18el58wi"]
+
+[ext_resource type="Script" path="res://scripts/microphone_game/MicrophoneGameManager.cs" id="1_fqxf4"]
+[ext_resource type="Texture2D" uid="uid://bvhv8dyiqtv2d" path="res://sprites/microgame/microphone_game/microphone__outline.png" id="2_6b1ua"]
+[ext_resource type="Script" path="res://scripts/microphone_game/Microphone.cs" id="3_noa11"]
+[ext_resource type="Texture2D" uid="uid://br7pap0n0s7nn" path="res://sprites/microgame/microphone_game/microphone.png" id="4_p03nh"]
+
+[node name="MicrophoneGameManager" type="Node2D"]
+script = ExtResource("1_fqxf4")
+
+[node name="MicrophoneOutline" type="Node2D" parent="."]
+
+[node name="MicrophoneOutlineSprite" type="Sprite2D" parent="MicrophoneOutline"]
+position = Vector2(460, 57)
+rotation = 1.5708
+scale = Vector2(0.418189, 0.418189)
+texture = ExtResource("2_6b1ua")
+
+[node name="Microphone" type="Node2D" parent="."]
+script = ExtResource("3_noa11")
+
+[node name="MicrophoneSprite" type="Sprite2D" parent="Microphone"]
+position = Vector2(454, 58)
+rotation = 1.5708
+scale = Vector2(0.425462, 0.425462)
+texture = ExtResource("4_p03nh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 392.0
+offset_top = 169.0
+offset_right = 588.0
+offset_bottom = 277.0
+scale = Vector2(1.73, 1.73)
+text = "Failure!"
+horizontal_alignment = 1
+vertical_alignment = 1
