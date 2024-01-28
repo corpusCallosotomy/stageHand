@@ -1,18 +1,77 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnx3entmvw7fr"]
+[gd_scene load_steps=22 format=3 uid="uid://bnx3entmvw7fr"]
 
 [ext_resource type="Texture2D" uid="uid://7tpdmwt7supg" path="res://sprites/static/testrender.png" id="1_5imvx"]
 [ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_jteog"]
 [ext_resource type="PackedScene" uid="uid://7rwt0cc7i3wp" path="res://scenes/Player.tscn" id="2_h4xbb"]
+[ext_resource type="Texture2D" uid="uid://cwaruclpn7kxo" path="res://sprites/anim/host/host1.png" id="4_krpu5"]
+[ext_resource type="Texture2D" uid="uid://48ae243an4pv" path="res://sprites/anim/host/host2.png" id="5_ch1ey"]
 [ext_resource type="AudioStream" uid="uid://ixmhgxb5k3ky" path="res://sounds/Talk_Show_Concept2_v.2.wav" id="5_fhycc"]
 [ext_resource type="PackedScene" uid="uid://c43k3gocdcbrr" path="res://scenes/News.tscn" id="6_ffltd"]
 [ext_resource type="PackedScene" uid="uid://c872t4veb8gxi" path="res://scenes/MicroPhoneInteractable.tscn" id="7_8j6qq"]
 [ext_resource type="PackedScene" uid="uid://cnuqdeo14dm70" path="res://scenes/Audience.tscn" id="8_seu2t"]
+[ext_resource type="Texture2D" uid="uid://c2c6l343p7m7x" path="res://sprites/microgame/spotlightInactive.png" id="10_nahii"]
+[ext_resource type="Texture2D" uid="uid://c4m7feviytatb" path="res://sprites/static/tvProp.png" id="11_g5o45"]
+[ext_resource type="Texture2D" uid="uid://5ff8oi5p3kji" path="res://sprites/static/tvPattern4.png" id="12_5uaym"]
+[ext_resource type="Texture2D" uid="uid://mwcry385f8c7" path="res://sprites/static/tvPattern1.png" id="13_rcqjo"]
+[ext_resource type="Texture2D" uid="uid://drj5oh53k2ivo" path="res://sprites/static/tvTransitionPattern.png" id="14_7aiw3"]
+[ext_resource type="Texture2D" uid="uid://ctlhjvi40rpgu" path="res://sprites/static/tvPattern2.png" id="15_cem81"]
+[ext_resource type="Texture2D" uid="uid://k2hcjjjfw12t" path="res://sprites/static/tvPattern3.png" id="16_lgrms"]
+[ext_resource type="Texture2D" uid="uid://cau051e8yseoq" path="res://sprites/static/tvPattern5.png" id="17_moy1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq3y0"]
 size = Vector2(1034, 278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qet1"]
 size = Vector2(519, 978)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6kib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_krpu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ch1ey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qkg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_rcqjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7aiw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cem81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7aiw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lgrms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7aiw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5uaym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_moy1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7aiw3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.25
+}]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("Microgames")]
 script = ExtResource("1_jteog")
@@ -54,9 +113,23 @@ shape = SubResource("RectangleShape2D_0qet1")
 
 [node name="ParentMicrorGames" type="Node2D" parent="."]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(375, 270)
+sprite_frames = SubResource("SpriteFrames_e6kib")
+autoplay = "default"
+frame_progress = 0.722723
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fhycc")
-autoplay = true
+
+[node name="TvProp" type="Sprite2D" parent="."]
+position = Vector2(637, 234)
+texture = ExtResource("11_g5o45")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(616, 216)
+sprite_frames = SubResource("SpriteFrames_2qkg4")
+frame_progress = 0.52327
 
 [node name="Newspaper2" parent="." instance=ExtResource("6_ffltd")]
 position = Vector2(72, 515)
@@ -76,3 +149,25 @@ position = Vector2(513, 692)
 
 [node name="TaskCountdown" type="Timer" parent="."]
 one_shot = true
+
+[node name="SpotlightInactive3" type="Sprite2D" parent="."]
+position = Vector2(171, 51)
+texture = ExtResource("10_nahii")
+flip_v = true
+
+[node name="SpotlightInactive2" type="Sprite2D" parent="."]
+position = Vector2(48, 54)
+rotation = 3.14159
+texture = ExtResource("10_nahii")
+flip_h = true
+
+[node name="SpotlightInactive4" type="Sprite2D" parent="."]
+position = Vector2(866, 53)
+texture = ExtResource("10_nahii")
+flip_h = true
+flip_v = true
+
+[node name="SpotlightInactive" type="Sprite2D" parent="."]
+position = Vector2(976, 53)
+rotation = 3.14159
+texture = ExtResource("10_nahii")
