@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://8uay5lh1abbw"]
+
+[ext_resource type="Script" path="res://scripts/TomatoHitBox.cs" id="1_fdghi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57rd5"]
+size = Vector2(23.625, 36)
+
+[node name="HitBox" type="Area2D"]
+script = ExtResource("1_fdghi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_57rd5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
