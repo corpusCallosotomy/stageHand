@@ -1,73 +1,94 @@
 using Godot;
 using System;
 
-public partial class tomato : CharacterBody2D
+public partial class Tomato : Node2D
 {
-	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
-	
-	private const float radianRotation = 3.5f;
-	private const float scaleSpeed = .3f;
-	private const float minScale = .35f;
-	private const float travelSpeed = 1f;
+	TomatoGameManager tomatoGameManager;
+	private Random rnd = new Random();
+	TomatoHitBox hitBox;
+	private const float radianRotation = .075f;
+	private const float scaleSpeed = .004f;
+	private Vector2 minScale = new Vector2(.3f, .3f);
+	private float throwSpeed = .01f;
+	private float _t = 0.0f;
+	private bool isExploded = false;
+	private double deSpawnTime = .5f;
 
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-	private double timeCounter = 0;
-	private double interval = .01; // 1 second interval
+	public override void _Ready()
+	{
+		SetThrowSpeed();
+		tomatoGameManager = (TomatoGameManager) GetParent().GetParent();
+	}
 
 	public override void _Process(double delta)
 	{
-		timeCounter += delta;
-		if (timeCounter >= interval)
-		{
-			MyRotation((float) delta);
-			MyScale((float) delta);
-			timeCounter = 0f; // Reset the counter
+		if(isExploded) {
+			if(deSpawnTime > 0)
+				deSpawnTime -= delta;
+			if(deSpawnTime < 0)
+				QueueFree();
 		}
-	}
-
-	public void MyRotation(float delta) {
-		Rotate(radianRotation * delta);
-	}
-
-	public void MyScale(float delta) {
-		float deltaScaleSpeed = scaleSpeed * delta;
-		float scaleX = Scale.X;
-		float scaleY = Scale.Y;
-		if((scaleX - deltaScaleSpeed) < minScale)
-			this.Scale = new Vector2(minScale, minScale);
-		if(scaleX > minScale)
-			this.Scale = new Vector2(scaleX - deltaScaleSpeed, scaleY - deltaScaleSpeed);
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		
-
-		// Vector2 velocity = Velocity;
-
-		// // Add the gravity.
-		// if (!IsOnFloor())
-		// 	velocity.Y += gravity * (float)delta;
-
-		// // Handle Jump.
-		// if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		// 	velocity.Y = JumpVelocity;
-
-		// // Get the input direction and handle the movement/deceleration.
-		// // As good practice, you should replace UI actions with custom gameplay actions.
-		// Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		// if (direction != Vector2.Zero)
-		// {
-		// 	velocity.X = direction.X * Speed;
-		// }
-		// else
-		// {
-		// 	velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		// }
-
-		// Velocity = velocity;
-		// MoveAndSlide();
+		if(isExploded)
+			return;
+		MyRotation();
+		MyScale();
+		MyMovement(delta);
 	}
+
+	public void MyRotation() {
+		Rotate(radianRotation);
+	}
+
+	public void MyScale() {
+		float scaleX = Scale.X;
+		float scaleY = Scale.Y;
+		if((scaleX - scaleSpeed) < minScale.X)
+			this.Scale = minScale;
+		if(scaleX > minScale.X)
+			this.Scale = new Vector2(scaleX - scaleSpeed, scaleY - scaleSpeed);
+	}
+
+	private void MyMovement(double delta) {
+		_t += (float) delta * throwSpeed;
+		Position = Position.Lerp(hitBox.Position, _t);
+		if(Math.Abs(Position.X - hitBox.Position.X) < 9 && (Math.Abs(Position.Y - hitBox.Position.Y) < 9))
+		{
+			// if player is in hit box, play success sound
+			if(hitBox.isPlayerInHitBox == true)
+			{
+				//! play sound
+				tomatoGameManager.increaseScore();
+				QueueFree();
+			}
+			else 
+			{
+				tomatoGameManager.resetScore();
+				Explode();
+			}
+		}
+	}
+
+	private void Explode() 
+	{
+		//! play squish sound
+		((CanvasItem)GetChild(0)).Hide();
+		((CanvasItem)GetChild(1)).Show();
+		isExploded = true;
+	}
+
+	public void SetHitBox(TomatoHitBox hitBox)
+	{
+		this.hitBox = hitBox;
+	}
+
+	public void SetThrowSpeed()
+	{
+		float speed = (float) (rnd.NextDouble() * .01);
+		throwSpeed += speed;
+	}
+
 }
