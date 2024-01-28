@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class TextureButton : Godot.TextureButton
+public partial class Newspaper : Godot.TextureButton
 {
 
     bool newspaperHeld = false;
@@ -27,13 +27,14 @@ public partial class TextureButton : Godot.TextureButton
 
         if (newspaperHeld)
         {
-            GD.Print("Moving Newspaper");
+            
             this.GlobalPosition = this.GlobalPosition.Lerp(GetGlobalMousePosition(), (float) (25 * delta));
         }
     }
 
     public void newspaperClicked()
     {
+        GD.Print("Starting to move nnewspaper: " + this.GetMeta("newspaper_index"));
         newspaperHeld = true;
     }
 
