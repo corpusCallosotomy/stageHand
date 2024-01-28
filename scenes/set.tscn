@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://7tpdmwt7supg" path="res://sprites/static/testrender.png" id="1_5imvx"]
 [ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_jteog"]
 [ext_resource type="PackedScene" uid="uid://7rwt0cc7i3wp" path="res://scenes/Player.tscn" id="2_h4xbb"]
-[ext_resource type="PackedScene" uid="uid://b8pc6ejab5htj" path="res://scenes/TestInteraction.tscn" id="3_o4yde"]
 [ext_resource type="AudioStream" uid="uid://ixmhgxb5k3ky" path="res://sounds/Talk_Show_Concept2_v.2.wav" id="5_fhycc"]
 [ext_resource type="PackedScene" uid="uid://c43k3gocdcbrr" path="res://scenes/Coffee.tscn" id="6_ffltd"]
 [ext_resource type="PackedScene" uid="uid://c872t4veb8gxi" path="res://scenes/MicroPhoneInteractable.tscn" id="7_8j6qq"]
+[ext_resource type="PackedScene" uid="uid://cnuqdeo14dm70" path="res://scenes/Audience.tscn" id="8_seu2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq3y0"]
 size = Vector2(1034, 278)
@@ -52,10 +52,6 @@ position = Vector2(1284.99, 478)
 scale = Vector2(1.00155, 1)
 shape = SubResource("RectangleShape2D_0qet1")
 
-[node name="Area2D" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("3_o4yde")]
-position = Vector2(882, 598)
-MicroGameParent = NodePath("../ParentMicrorGames")
-
 [node name="ParentMicrorGames" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -63,12 +59,22 @@ stream = ExtResource("5_fhycc")
 autoplay = true
 
 [node name="Area2D2" parent="." instance=ExtResource("6_ffltd")]
-position = Vector2(70, 607)
+position = Vector2(72, 515)
+
+[node name="Area2D6" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("6_ffltd")]
+position = Vector2(956, 519)
+MicroGameParent = NodePath("../Area2D2/Node2D")
 
 [node name="Area2D3" parent="." instance=ExtResource("7_8j6qq")]
 position = Vector2(234, 264)
 
 [node name="Area2D4" parent="." node_paths=PackedStringArray("MicroGameParent") instance=ExtResource("7_8j6qq")]
-position = Vector2(866, 264)
+position = Vector2(788, 264)
 scale = Vector2(-1, 1)
 MicroGameParent = NodePath("../Area2D3/Node2D")
+
+[node name="Area2D5" parent="." instance=ExtResource("8_seu2t")]
+position = Vector2(513, 692)
+
+[node name="TaskCountdown" type="Timer" parent="."]
+one_shot = true

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c74ype3vu4c6d" path="res://sprites/microgame/gafferInactive.png" id="2_qfkru"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qslcu"]
-radius = 134.41
+radius = 90.0
 
 [node name="Area2D" type="Area2D" node_paths=PackedStringArray("MicroGameParent") groups=["Interactable"]]
 collision_layer = 2
