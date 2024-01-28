@@ -35,6 +35,8 @@ public partial class NewspaperGameManager : Node2D
 
     String[] newspaper_letters = {"L","P","A"};
 
+    AudioStreamPlayer audioPlayer = null;
+
 
     public override void _Ready()
     {
@@ -68,6 +70,10 @@ public partial class NewspaperGameManager : Node2D
             else if (child.Name == "Letter")
             {
                 letterID = (Sprite2D) child;
+            }
+            else if (child.Name == "AudioPlayer")
+            {
+                audioPlayer = (AudioStreamPlayer)child;
             }
 
         }
@@ -141,6 +147,8 @@ public partial class NewspaperGameManager : Node2D
             smallFetchPrompt.Visible = false;
             waitingForTime = true;
             waitForTime();
+            audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/StartGame_Chime.wav");
+            audioPlayer.Play();
         }
         else if (state == GameState.Prompt)
         {
@@ -168,7 +176,13 @@ public partial class NewspaperGameManager : Node2D
 
                     // GD.Print("Newspaper " + newspaper.getIndex() + " in zone");
                 }
-                
+
+                if (newspaper.getNewspaperHeld() && !audioPlayer.Playing)
+                {
+                    audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/Newspaper Game/PaperShuffle" + rnd.Next(1, 4) + ".wav");
+                    audioPlayer.Play();
+                }
+
             }
             foreach (Newspaper newspaper in added_newspapers)
             {
@@ -182,6 +196,11 @@ public partial class NewspaperGameManager : Node2D
                     }
 
                     // GD.Print("Newspaper " + newspaper.getIndex() + " in zone");
+                }
+                if (newspaper.getNewspaperHeld() && !audioPlayer.Playing)
+                {
+                    audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/Newspaper Game/PaperShuffle" + rnd.Next(1, 4) + ".wav");
+                    audioPlayer.Play();
                 }
 
             }

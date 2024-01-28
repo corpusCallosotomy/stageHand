@@ -100,8 +100,10 @@ public partial class MicrophoneGameManager : Node2D
 			smallPrompt.Visible = false;
 			waitingForTime = true;
 			waitForTime();
+            audioPlayer.Stream = GD.Load<AudioStream>("res://sounds/Micro Game Sounds/StartGame_Chime.wav");
+            audioPlayer.Play();
 
-			microphoneNode.setMovable(false);
+            microphoneNode.setMovable(false);
 		}
 		else if (state == GameState.Prompt)
 		{

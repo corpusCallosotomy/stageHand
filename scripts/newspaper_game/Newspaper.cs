@@ -53,4 +53,9 @@ public partial class Newspaper : Godot.TextureButton
         return this.newsPaperIndex;
     }
 
+    public bool getNewspaperHeld()
+    {
+        return newspaperHeld;
+    }
+
 }
