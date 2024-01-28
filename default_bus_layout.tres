@@ -1,10 +1,7 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://4vbhr2a3elwh"]
-
-[sub_resource type="AudioEffectRecord" id="AudioEffectRecord_x8m4t"]
-resource_name = "Record"
+[gd_resource type="AudioBusLayout" format=3 uid="uid://cc1err7rn2tt5"]
 
 [resource]
-bus/1/name = &"MutedInput"
+bus/1/name = &"MutedBus"
 bus/1/solo = false
 bus/1/mute = true
 bus/1/bypass_fx = false
@@ -15,6 +12,4 @@ bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
-bus/2/send = &"MutedInput"
-bus/2/effect/0/effect = SubResource("AudioEffectRecord_x8m4t")
-bus/2/effect/0/enabled = true
+bus/2/send = &"MutedBus"

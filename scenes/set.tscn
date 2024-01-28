@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnx3entmvw7fr"]
+[gd_scene load_steps=23 format=3 uid="uid://bnx3entmvw7fr"]
 
 [ext_resource type="Texture2D" uid="uid://7tpdmwt7supg" path="res://sprites/static/testrender.png" id="1_5imvx"]
 [ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_jteog"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ctlhjvi40rpgu" path="res://sprites/static/tvPattern2.png" id="15_cem81"]
 [ext_resource type="Texture2D" uid="uid://k2hcjjjfw12t" path="res://sprites/static/tvPattern3.png" id="16_lgrms"]
 [ext_resource type="Texture2D" uid="uid://cau051e8yseoq" path="res://sprites/static/tvPattern5.png" id="17_moy1o"]
+[ext_resource type="PackedScene" uid="uid://cnjer7w0sg6ow" path="res://sign.tscn" id="18_jw8fo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq3y0"]
 size = Vector2(1034, 278)
@@ -133,7 +134,7 @@ texture = ExtResource("11_g5o45")
 position = Vector2(616, 216)
 sprite_frames = SubResource("SpriteFrames_2qkg4")
 autoplay = "default"
-frame_progress = 0.947746
+frame_progress = 0.939473
 
 [node name="Newspaper2" parent="." instance=ExtResource("6_ffltd")]
 position = Vector2(72, 515)
@@ -175,3 +176,6 @@ flip_v = true
 position = Vector2(976, 53)
 rotation = 3.14159
 texture = ExtResource("10_nahii")
+
+[node name="Sign" parent="." instance=ExtResource("18_jw8fo")]
+position = Vector2(556, 73)
