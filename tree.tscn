@@ -6,7 +6,8 @@
 [node name="Tree" type="Node"]
 script = ExtResource("1_lmo0p")
 
-[node name="MainSet" parent="." instance=ExtResource("1_0i1cb")]
+[node name="MainSet" parent="." node_paths=PackedStringArray("Microgames") instance=ExtResource("1_0i1cb")]
+Microgames = [null]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 visible = false
